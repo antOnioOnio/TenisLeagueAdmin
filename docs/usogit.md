@@ -9,7 +9,7 @@ Para la correcta utilización del entorno de desarrollo de la asignatura se han 
 - [Repositorio de la asignatura](https://github.com/antOnioOnio/IV-20-21).
 
 
-- [Repositorio de la asignatura](https://github.com/antOnioOnio/IV-20-21).
+- [Repositorio para ejercicios de autoevaluación](https://github.com/antOnioOnio/IV-autoevaluacion).
 
 ## Configuración de ~/.gitconfig
 Se ha creado y configurado en el home el archivo .gitconfig con la siguiente configuración
