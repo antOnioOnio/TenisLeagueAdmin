@@ -21,3 +21,7 @@ Se han creado el par de claves pública-privada y subido correctamente la públi
 
 
 ![](images/sshtest.png)
+
+## Remote links
+
+![](images/gitremote.png)
