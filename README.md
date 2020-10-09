@@ -7,7 +7,7 @@ El proyecto consiste en una API que gestionará la información necesaria para u
 El objetivo principal del proyecto es tener una API que proporcione a todos los jugadores amateur de padel y tenis una fuente fiable de resultados pasados y partidos futuros que estan por jugar. 
 
 ## Desarrollo del proyecto
-El desarrollo del proyecto esta estructurado por hitos, los cuales podeis consultar [aqui](/docs/pasos.md) . 
+El desarrollo del proyecto esta estructurado por semanas, los cuales podeis consultar [aqui](/docs/pasos.md) . 
 
 ## Historias de usuario
 Los issues creados para reflejar las historias de usuario 
