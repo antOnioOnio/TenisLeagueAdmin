@@ -15,5 +15,7 @@
 + Actualizar Readme.md para cumplir las rúbricas del hito 1.
 
 # Tercera semama, Hito 2
-+ Creación de los test necesarios
++ Informarme bien de las diferentes opciones para la creación de tests que hay.
++ Añadir las dependencias necesarias, en mi caso Mocha y Chai
++ Creación de los test.
 + Puesta en marcha de dichos tests

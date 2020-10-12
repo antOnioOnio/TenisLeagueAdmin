@@ -5,6 +5,7 @@ class Player {
         this.email = email;
         this.tlf = tlf;
         this.level = level;
+        this.age = age;
     }
 
 
@@ -20,6 +21,8 @@ class Player {
 
     get level(){return this.level;}
 
+    get age(){return this.age;}
+
     // setters
 
     set id(id){this.id = id;}
@@ -32,5 +35,5 @@ class Player {
 
     set level(level){this.level = level;}
 
-    
+    set age(age){this.age = age;}
 }
