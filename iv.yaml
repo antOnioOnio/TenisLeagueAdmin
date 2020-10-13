@@ -2,6 +2,6 @@ entidad: src/models/match.js
 
 lenguaje: javascript
 
-test:
+test: src/models/player.js
 
-taskfile: 
+taskfile: Makefile
