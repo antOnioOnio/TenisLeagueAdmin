@@ -36,4 +36,13 @@ class Player {
     set level(level){this.level = level;}
 
     set age(age){this.age = age;}
+
+
+    static validAge(age){
+        return age > 0 ? true : false;
+    }
+
+
 }
+
+module.exports = Player;

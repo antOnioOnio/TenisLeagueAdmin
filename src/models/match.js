@@ -31,10 +31,6 @@ class Match{
 
     set players(players){this.players = players;}
 
-    
-
-
-
 
 }
 

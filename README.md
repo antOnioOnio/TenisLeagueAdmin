@@ -19,7 +19,7 @@ Los issues creados para reflejar las historias de usuario
 ## Organización del proyecto y enlaces de interés
 
 - [Documentación](https://github.com/antOnioOnio/antOnioOnio-TenisLeagueAdmin-/tree/master/docs) del proyecto
-- [Código desarrolado](/src/models/match.ts) hasta ahora.
+- [Cdigo desarrolado](/src/models/match.ts) hasta ahora.
 - [Archivo yv.yaml](https://github.com/antOnioOnio/antOnioOnio-TenisLeagueAdmin-/blob/master/iv.yaml)
 - [Herramientas utlizadas](/docs/herramientas.md) para el desarrollo del proyecto.
 - [Configuración inicial](/docs/usogit.md) de git siguiendo las buenas prácticas.
