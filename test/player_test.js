@@ -1,7 +1,5 @@
-const { validAge } = require('../src/models/player');
-
 const assert = require('chai').assert;
-const player = require("../src/models/player").validAge;
+const validAge = require("../src/models/player").validAge;
 
 describe('Testing validAge method', function () {
     it('validAge should return a type boolean', function(){
