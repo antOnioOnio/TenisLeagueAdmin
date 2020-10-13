@@ -1,6 +1,6 @@
-entidad: src/models/match.ts
+entidad: src/models/match.js
 
-lenguaje: 
+lenguaje: javascript
 
 test:
 
