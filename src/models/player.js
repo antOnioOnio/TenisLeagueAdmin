@@ -42,6 +42,9 @@ class Player {
         return age > 0 ? true : false;
     }
 
+    static validLevel(level){
+        return level> 0 && level <4 ? true: false;
+    }
 
 }
 
