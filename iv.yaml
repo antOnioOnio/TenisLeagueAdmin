@@ -4,4 +4,4 @@ lenguaje: javascript
 
 test: src/models/player.js
 
-taskfile: Makefile
+taskfile: package.json
