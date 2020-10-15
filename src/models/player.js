@@ -46,6 +46,12 @@ class Player {
         return level> 0 && level <4 ? true: false;
     }
 
+    static isAtlf(tlf){
+        
+    
+        return !isNaN(tlf) && tlf.toString().length == 9 ;
+    }
+
 }
 
 module.exports = Player;
