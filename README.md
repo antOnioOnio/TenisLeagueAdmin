@@ -17,7 +17,7 @@ Nos situamos en nuestra proyecto, para ello:
     
     cd antOnioOnio-TenisLeagueAdmin-
 
-Se asume que el lector tiene instalado node y el gestor npm instalado en su máquina. Si no es así, node puede ser descargado de [aqui](https://nodejs.org/es/). npm será automáticamente instalado junto con node.
+Se asume que el lector tiene instalado node y el gestor npm instalado en su máquina. Si no es así, node puede ser descargado de [aquí](https://nodejs.org/es/). npm será automáticamente instalado junto con node.
 
 Para instalar las dependencias necesarias para nuestro proyecto basta con ejecutar el siguiente comando:
 
@@ -28,7 +28,7 @@ Y para inicializar dicho proyecto:
     npm start 
 
 ## Desarrollo del proyecto
-El desarrollo del proyecto esta estructurado por semanas, las cuáles podéis consultar [aqui](/docs/pasos.md) . 
+El desarrollo del proyecto esta estructurado por semanas, las cuáles podéis consultar [aquí](/docs/pasos.md) . 
 
 ## Historias de usuario
 Los issues creados para reflejar las historias de usuario 
@@ -40,8 +40,9 @@ Los issues creados para reflejar las historias de usuario
 ## Test del proyecto
 Entre la amplia gama de librerías que nos podemos encontrar para el testeo de código (Jasmine, Expresso, Should, NodeUnit, jsUnit) en este proyecto se va a utilizar [mocha](https://mochajs.org/) junto con [chai](https://www.chaijs.com/). La razón principal es porque es la opción más recomendada por la comunidad, y ya que es la primera vez que uso una biblioteca de este tipo, que mejor que hacerlo con las herramientas más usadas.
 
-+ El primer archivo de test lo puedes consultar [aqui](/test/player_test.js). 
-+ La clase testeada hasta la fecha la puedes consultar [aqui](/src/models/player.js) 
++ Para saber como ejecutar los test y ver una salida correcta [aquí](/docs/correctoTesteo.md)
++ El primer archivo de test lo puedes consultar [aquí](/test/player_test.js). 
++ La clase testeada hasta la fecha la puedes consultar [aquí](/src/models/player.js) 
 
 ## Taskfile
 Nuestro archivo vital de nuestro proyecto es [package.json](/package.json). Node guarda automáticamente un registro en este archivo la configuración y dependencias necesarías para su correcto funcionamiento (si instalamos con --save). En este archivo encontraremos entre otras cosas:
