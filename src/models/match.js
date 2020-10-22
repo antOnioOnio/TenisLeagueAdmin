@@ -1,37 +1,41 @@
 class Match{
-    constructor(id, date, played, result, players){
-        this.id = id;
-        this.date = date;
-        this.played = played;
-        this.result = result;
-        this.players = players;
+    constructor(id, date, played, result, player1,player2){
+        this._id = id;
+        this._date = date;
+        this._played = played;
+        this._result = result;
+        this._player1 = player1;
+        this._player2 = player2;
     }
 
     // getters
 
-    get id(){return this.id;}
+    get id(){return this._id;}
 
-    get date(){return this.date;}
+    get date(){return this._date;}
 
-    get played(){return this.played;}
+    get played(){return this._played;}
 
-    get result(){return this.result;}
+    get result(){return this._result;}
 
-    get players(){return this.players;}
+    get player1(){return this._player1;}
+
+    get player2(){return this._player2;}
 
     // setters
 
-    set id(id){this.id = id;}
+    set id(id){this._id = id;}
 
-    set date(date){this.date = date;}
+    set date(date){this._date = date;}
 
-    set played(played){this.played = played;}
+    set played(played){this._played = played;}
 
-    set result(result){this.result = result;}
+    set result(result){this._result = result;}
 
-    set players(players){this.players = players;}
+    set player1(player){this._player1 = player;}
 
+    set player2(player){this._player2 = player;}
 
 }
 
-
+module.exports = Match;

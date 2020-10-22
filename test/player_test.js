@@ -4,6 +4,38 @@ const assert = require('chai').assert;
 const validAge = require("../src/models/player").validAge;
 const validLevel = require("../src/models/player").validLevel;
 const isAtlf = require("../src/models/player").isAtlf;
+const Player = require("../src/models/player");
+
+
+describe('Testing class Player', function () {
+
+    let normalPlayer = new Player("123456", 
+    "Brian", 
+    "brian@correo.es", 
+    "612453456", 
+    "medium", 
+    "33");
+
+    it('get Id should returns 123456 ', function(){
+        expect(normalPlayer.id).to.equal("123456");
+    });
+    it('get name should returns Brian ', function(){
+        expect(normalPlayer.name).to.equal("Brian");
+    });
+    it('get email should returns brian@correo.es', function(){
+        expect(normalPlayer.email).to.equal("brian@correo.es");
+    });
+    it('get tlf should returns 612453456', function(){
+        expect(normalPlayer.tlf).to.equal("612453456");
+    });
+    it('get level should returns medium ', function(){
+        expect(normalPlayer.level).to.equal("medium");
+    });
+    // it('get age should returns 33 ', function(){
+    //     expect(normalPlayer.age).to.equal("33");
+    // });
+});
+
 
 describe('Testing validAge method', function () {
     it('validAge should return a type boolean', function(){

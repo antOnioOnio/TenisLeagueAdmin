@@ -1,41 +1,41 @@
 class Player {
-    constructor(id, name, email, tlf, level){
-        this.id = id;
-        this.name = name;
-        this.email = email;
-        this.tlf = tlf;
-        this.level = level;
-        this.age = age;
+    constructor(id, name, email, tlf, level, age){
+        this._id = id;
+        this._name = name;
+        this._email = email;
+        this._tlf = tlf;
+        this._level = level;
+        this._age = age;
     }
 
 
     // getters
 
-    get id(){return this.id;}
+    get id(){return this._id;}
 
-    get name(){return this.name;}
+    get name(){return this._name;}
 
-    get email(){return this.email;}
+    get email(){return this._email;}
 
-    get tlf(){return this.tlf;}
+    get tlf(){return this._tlf;}
 
-    get level(){return this.level;}
+    get level(){return this._level;}
 
-    get age(){return this.age;}
+    get age(){return this._age;}
 
     // setters
 
-    set id(id){this.id = id;}
+    set id(id){this._id = id;}
 
-    set name(name){this.name = name;}
+    set name(name){this._name = name;}
 
-    set email(email){this.email = email;}
+    set email(email){this._email = email;}
 
-    set tlf(tlf){this.tlf = tlf;}
+    set tlf(tlf){this._tlf = tlf;}
 
-    set level(level){this.level = level;}
+    set level(level){this._level = level;}
 
-    set age(age){this.age = age;}
+    set age(age){this._age = age;}
 
 
     static validAge(age){
@@ -47,8 +47,6 @@ class Player {
     }
 
     static isAtlf(tlf){
-        
-    
         return !isNaN(tlf) && tlf.toString().length == 9 ;
     }
 
