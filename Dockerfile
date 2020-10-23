@@ -1,14 +1,17 @@
 FROM node:14-alpine
 
-# create app directory
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
+# Set our main directory where we´re going to work
+WORKDIR /app
 
-#install dependencies
-COPY package.json /usr/src/app
+# Copy our config file into our image
+COPY package.json .
+
+# Install dependencies
 RUN npm install
 
-# bundle source
-COPY . /usr/src/app
-EXPOSE 3000
+# Move our needed files
+COPY ./src ./src
+COPY ./test ./test
+
+# Set the command to execute
 CMD ["npm", "test"]
