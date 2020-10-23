@@ -1,5 +1,5 @@
 {
-  "name": "antonioonio-tenisleagueadmin-",
+  "name": "TenisLeagueAdmin",
   "version": "1.0.0",
   "description": "Rest API to manage data related to a fake tennis league in Granada",
   "main": "index.js",
@@ -13,14 +13,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/antOnioOnio/antOnioOnio-TenisLeagueAdmin-.git"
+    "url": "git+https://github.com/antOnioOnio/TenisLeagueAdmin.git"
   },
   "author": "Antonio Garcia",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/antOnioOnio/antOnioOnio-TenisLeagueAdmin-/issues"
+    "url": "https://github.com/antOnioOnio/TenisLeagueAdmin/issues"
   },
-  "homepage": "https://github.com/antOnioOnio/antOnioOnio-TenisLeagueAdmin-#readme",
+  "homepage": "https://github.com/antOnioOnio/TenisLeagueAdmin#readme",
   "dependencies": {
     "chai": "^4.2.0",
     "mocha": "^8.1.3"

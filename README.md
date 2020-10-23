@@ -11,11 +11,11 @@ El objetivo principal del proyecto es tener una API que proporcione a todos los 
 
 Clonamos el repositorio a nuestra máquina local:
     
-    git clone https://github.com/antOnioOnio/antOnioOnio-TenisLeagueAdmin-
+    git clone https://github.com/antOnioOnio/TenisLeagueAdmin
 
 Nos situamos en nuestra proyecto, para ello:
     
-    cd antOnioOnio-TenisLeagueAdmin-
+    cd TenisLeagueAdmin
 
 Se asume que el lector tiene instalado node y el gestor npm instalado en su máquina. Si no es así, node puede ser descargado de [aquí](https://nodejs.org/es/). npm será automáticamente instalado junto con node.
 
@@ -33,8 +33,8 @@ El desarrollo del proyecto esta estructurado por semanas, las cuáles podéis co
 ## Historias de usuario
 Los issues creados para reflejar las historias de usuario 
 
-+  [HU01](https://github.com/antOnioOnio/antOnioOnio-TenisLeagueAdmin-/issues/3) 
-+  [HU02](https://github.com/antOnioOnio/antOnioOnio-TenisLeagueAdmin-/issues/4) 
++  [HU01](https://github.com/antOnioOnio/TenisLeagueAdmin/issues/3) 
++  [HU02](https://github.com/antOnioOnio/TenisLeagueAdmin/issues/4) 
 
 
 ## Test del proyecto
@@ -55,14 +55,14 @@ Nuestro archivo vital de nuestro proyecto es [package.json](/package.json). Node
 +  Licencia
 
 # Issues abiertos y milestones
-+ [Aquí](https://github.com/antOnioOnio/antOnioOnio-TenisLeagueAdmin-/issues) puedes encontrar los distintos issues abiertos y cerrados hasta la fecha.
-+ [Aquí](https://github.com/antOnioOnio/antOnioOnio-TenisLeagueAdmin-/milestones) puedes consultar los issues relaciondos con los milestone, los cuáles determinan los puntos claves en el desarrollo de este proyecto.
++ [Aquí](https://github.com/antOnioOnio/TenisLeagueAdmin/issues) puedes encontrar los distintos issues abiertos y cerrados hasta la fecha.
++ [Aquí](https://github.com/antOnioOnio/TenisLeagueAdmin/milestones) puedes consultar los issues relaciondos con los milestone, los cuáles determinan los puntos claves en el desarrollo de este proyecto.
 
 ## Organización del proyecto y enlaces de interés
 
-- [Documentación](https://github.com/antOnioOnio/antOnioOnio-TenisLeagueAdmin-/tree/master/docs) del proyecto
+- [Documentación](https://github.com/antOnioOnio/TenisLeagueAdmin/tree/master/docs) del proyecto
 - [Código desarrolado](/src/models/match.ts) hasta ahora.
-- [Archivo yv.yaml](https://github.com/antOnioOnio/antOnioOnio-TenisLeagueAdmin-/blob/master/iv.yaml)
+- [Archivo yv.yaml](https://github.com/antOnioOnio/TenisLeagueAdmin/blob/master/iv.yaml)
 - [Herramientas utlizadas](/docs/herramientas.md) para el desarrollo del proyecto.
 - [Configuración inicial](/docs/usogit.md) de git siguiendo las buenas prácticas.
 - [Github Autor](https://github.com/antOnioOnio)

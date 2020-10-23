@@ -4,7 +4,7 @@
 
 Para la correcta utilización del entorno de desarrollo de la asignatura se han creado 3 repositorios.
 
-- [Proyecto a desarrollar](https://github.com/antOnioOnio/antOnioOnio-TenisLeagueAdmin-).
+- [Proyecto a desarrollar](https://github.com/antOnioOnio/TenisLeagueAdmin).
 
 - [Repositorio de la asignatura](https://github.com/antOnioOnio/IV-20-21).
 
