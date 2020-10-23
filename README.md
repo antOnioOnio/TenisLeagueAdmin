@@ -54,6 +54,40 @@ Nuestro archivo vital de nuestro proyecto es [package.json](/package.json). Node
 +  Autor
 +  Licencia
 
+# Docker
+
+## Elección de un contenedor base
+
+A la hora de elegir una imagen base para un proyecto en node nos encontramos con una amplia variedad de [posibilidades](https://hub.docker.com/_/node). Como podemos comprobar la lista es extensa. El primer paso es elegir nuestra versión, en mi caso como en mi máquina local tengo la versión 14 instalada, esta ha sido la elegida. A continuación (si decidimos elegir una versión en concreto y no la de por defecto) podemos especificar que versión deseamos. 
+
++  [alpine](https://github.com/nodejs/docker-node/blob/7b11db1cab459beb96448e18ec421ec952fa0491/14/alpine3.12/Dockerfile) 
++  [buster](https://github.com/nodejs/docker-node/blob/7b11db1cab459beb96448e18ec421ec952fa0491/14/buster-slim/Dockerfile)
++  [strech](https://github.com/nodejs/docker-node/blob/7b11db1cab459beb96448e18ec421ec952fa0491/14/stretch/Dockerfile)
+
+Para poder elegir la correcta para mi proyecto me he basado en 3 aspectos fundamentales. Peso de la imagen, sistema operativo basado y tiempo de creación de la imagen.
+## Peso
+El peso de las imagenes es el siguiente:
+ + **Strecth** -> 344.36MB
+ + **Strecth-slim** -> 65.29MB
+ + **Buster** -> 321.14MB
+ + **Buster-slim** -> 57.7MB
+ + **Alpine** -> 37.14MB
+
+Como podemos apreciar en este apartado la más ligera sería Alpine.
+Observamos por el tamaño de las imagenes que tenemos la opción de elegir la versión Full o la versión Slim. Ambas versiónes estan basadas en Debian Linux, salvo la versión Alpine que esta basada en linux. La diferencia de tamaño se debe a que la versión full trae una serie de herramientas adicionales, tales como software de versión de control, librerías, APIs etc. La pregunta es 
+¿ Necesitamos nosotros todas esas herramientas ?
+
+## Tiempo de ejecución
+Se han realizado distintas mediciones con las versiones por defecto, -slim y alpine. El cálculo para ser lo más objetivo posible e independiente del peso de la versión se ha realizado solo al reconstruir la imagen, no en la primera ya que ya hemos tenido en cuenta el peso de cada versión. Sorprendentemente el tiempo de ejecución en las 3 versiones testeadas no varío demasiado.
+* Node 14   ==> 0.18s
+* Node 14-slim ==> 0.19s
+* Node 14-Alpine ==> 0.16s
+
+Aunque la diferencia no sea mucha, Alpine es la versión más rapida y la más ligera. Además provee de opciones para poder incluir librerías y herramientas si en el futuro hicieran falta. Aparte de estar basada en linux. 
+La elección para este proyecto esta clara, Alpine, por las razones comentadas. 
+Cabe destacar que la elección de esta versión no nos ata a esta versión para siempre ya que cambiar entre ellas es sencillo y rápido.
+
+
 # Issues abiertos y milestones
 + [Aquí](https://github.com/antOnioOnio/TenisLeagueAdmin/issues) puedes encontrar los distintos issues abiertos y cerrados hasta la fecha.
 + [Aquí](https://github.com/antOnioOnio/TenisLeagueAdmin/milestones) puedes consultar los issues relaciondos con los milestone, los cuáles determinan los puntos claves en el desarrollo de este proyecto.
