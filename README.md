@@ -45,7 +45,7 @@ Entre la amplia gama de librerías que nos podemos encontrar para el testeo de c
 + La clase testeada hasta la fecha la puedes consultar [aquí](/src/models/player.js) 
 
 ## Taskfile
-Nuestro archivo vital de nuestro proyecto es [package.json](/package.json). Node guarda automáticamente un registro en este archivo la configuración y dependencias necesarías para su correcto funcionamiento (si instalamos con --save). En este archivo encontraremos entre otras cosas:
+Nuestro archivo vital del proyecto es [package.json](/package.json). Node guarda automáticamente un registro en este archivo la configuración y dependencias necesarías para su correcto funcionamiento (si instalamos con --save). En este archivo encontraremos entre otras cosas:
 
 +  Nombre del proyecto
 +  Versión
@@ -65,6 +65,7 @@ A la hora de elegir una imagen base para un proyecto en node nos encontramos con
 +  [strech](https://github.com/nodejs/docker-node/blob/7b11db1cab459beb96448e18ec421ec952fa0491/14/stretch/Dockerfile)
 
 Para poder elegir la correcta para mi proyecto me he basado en 3 aspectos fundamentales. Peso de la imagen, sistema operativo basado y tiempo de creación de la imagen.
+
 ## Peso
 El peso de las imagenes es el siguiente:
  + **Strecth** -> 344.36MB
@@ -87,6 +88,24 @@ Aunque la diferencia no sea mucha, Alpine es la versión más rapida y la más l
 La elección para este proyecto esta clara, Alpine, por las razones comentadas. 
 Cabe destacar que la elección de esta versión no nos ata a esta versión para siempre ya que cambiar entre ellas es sencillo y rápido.
 
+## Dockerfile
+Nuestro [Dockerfile](/Dockerfile) es el encargado de construir nuestro imagen o entorno donde se ejecutarán los tests. A continuación se explican las lineas clave de este.
+Empezamos estableciendo nuestro directorio de trabajo donde se ejecutara nuestra app.
+     
+    WORKDIR /app
+A continuación instalamos nuestras dependencias necesarías, las cuáles estan dentro de nuestro archivo package.json. Para ello entonces copiamos dicho archivo a nuestro directorio de trabajo y las ejecutamos.
+
+    COPY package.json .
+    RUN npm install
+
+Ahora lo que necesitamos son nuestros archivos esenciales para poder correr nuestras pruebas, esto es nuestros ficheros de tests y nuestros ficheros testeados.
+
+    COPY ./src ./src
+    COPY ./test ./test
+
+Por último necesitamos establecer el comando a ejecutar cuando corramos nuestra imagen.
+
+    CMD ["npm", "test"]
 
 # Issues abiertos y milestones
 + [Aquí](https://github.com/antOnioOnio/TenisLeagueAdmin/issues) puedes encontrar los distintos issues abiertos y cerrados hasta la fecha.
