@@ -15,5 +15,5 @@ jobs:
           username: ${{ secrets.DOCKER_USER }}
           password: ${{ secrets.DOCKER_PASSWORD }}
           registry: docker.pkg.github.com
-          repository: antOnioOnio/TenisLeagueAdmin/tenisdockerimagefortest
+          repository: antonioonio/tenisleagueadmin/tenisdockerimagefortest
           tag_with_ref: true
