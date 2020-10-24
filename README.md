@@ -109,6 +109,10 @@ Por último necesitamos establecer el comando a ejecutar cuando corramos nuestra
     CMD ["npm", "test"]
 
 ## Integración continua
+Se ha configurado la publicación de los contenederos en dos registros de imágenes. Se ha hecho de tal manera para que con cada push realizado al repositorio estas sean actualizadas automáticamente. 
++ [Dockerhub](https://hub.docker.com/r/antonioonio/tenisleagueadmin). Dockerhub dispone de una documentación muy buena, para poder conseguir la construcción automática de las imagenes se ha seguido [este](https://docs.docker.com/docker-hub/builds/) artículo donde se explica el procedimiento paso a paso.
++ [Github container registry](https://github.com/antOnioOnio/TenisLeagueAdmin/packages/472054). Para poder conseguir la automatización en este registro he tenido que configurar una github actions, puedes consultar el workflow [aqui](https://github.com/antOnioOnio/TenisLeagueAdmin/blob/master/.github/workflows/docker.yml). 
+
 
 
 # Issues abiertos y milestones
