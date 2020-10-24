@@ -27,7 +27,7 @@ jobs:
         run:  docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
       # Runs a single command using the runners shell
       - name: docker build
-        run: docker build -t tenistestimage .
+        run: docker build -t docker.pkg.github.com/antonioonio/tenisleagueadmin/tenistestimage .
 
       - name: docker push
         run: docker push docker.pkg.github.com/antonioonio/tenisleagueadmin/tenistestimage:v1
