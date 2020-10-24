@@ -30,4 +30,4 @@ jobs:
         run: docker build -t tenistestimage .
 
       - name: docker push
-        run: docker push tenistestimage
+        run: docker push docker.pkg.github.com/antonioonio/tenisleagueadmin/tenistestimage:v1
