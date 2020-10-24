@@ -68,18 +68,19 @@ Para poder elegir la correcta para mi proyecto me he basado en 3 aspectos fundam
 
 ## Peso
 El peso de las imagenes es el siguiente:
- + **Strecth** -> 344.36MB
- + **Strecth-slim** -> 65.29MB
- + **Buster** -> 321.14MB
- + **Buster-slim** -> 57.7MB
- + **Alpine** -> 37.14MB
+ + **14-strecth** -> 943MB
+ + **Strecth-slim** -> 167MB
+ + **14-buster** -> 912MB
+ + **14-buster-slim** -> 180MB
+ + **14-alpine** -> 117MB
+ + **14** -> 943MB
 
 Como podemos apreciar en este apartado la más ligera sería Alpine.
-Observamos por el tamaño de las imagenes que tenemos la opción de elegir la versión Full o la versión Slim. Ambas versiónes estan basadas en Debian Linux, salvo la versión Alpine que esta basada en linux. La diferencia de tamaño se debe a que la versión full trae una serie de herramientas adicionales, tales como software de versión de control, librerías, APIs etc. La pregunta es 
+Observamos por el tamaño de las imagenes que tenemos la opción de elegir la versión Full o la versión Slim. Ambas versiónes están basadas en Debian Linux, salvo la versión Alpine que está basada en linux. La diferencia de tamaño se debe a que la versión full trae una serie de herramientas adicionales, tales como software de versión de control, librerías, APIs etc. La pregunta es 
 ¿ Necesitamos nosotros todas esas herramientas ?
 
 ## Tiempo de ejecución
-Se han realizado distintas mediciones con las versiones por defecto, -slim y alpine. El cálculo para ser lo más objetivo posible e independiente del peso de la versión se ha realizado solo al reconstruir la imagen, no en la primera ya que ya hemos tenido en cuenta el peso de cada versión. Sorprendentemente el tiempo de ejecución en las 3 versiones testeadas no varío demasiado.
+Se han realizado distintas mediciones con las versiones por defecto, slim y alpine. El cálculo para ser lo más objetivo posible e independiente del peso de la versión se ha realizado solo al reconstruir la imagen, no en la primera ya que ya hemos tenido en cuenta el peso de cada versión. Sorprendentemente el tiempo de ejecución en las 3 versiones testeadas no varía demasiado.
 * Node 14   ==> 0.18s
 * Node 14-slim ==> 0.19s
 * Node 14-Alpine ==> 0.16s
@@ -106,6 +107,9 @@ Ahora lo que necesitamos son nuestros archivos esenciales para poder correr nues
 Por último necesitamos establecer el comando a ejecutar cuando corramos nuestra imagen.
 
     CMD ["npm", "test"]
+
+## Integración continua
+
 
 # Issues abiertos y milestones
 + [Aquí](https://github.com/antOnioOnio/TenisLeagueAdmin/issues) puedes encontrar los distintos issues abiertos y cerrados hasta la fecha.

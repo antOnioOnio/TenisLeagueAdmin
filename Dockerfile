@@ -1,4 +1,8 @@
-FROM node:14-alpine
+FROM node:14-stretch-slim
+
+Label maintainer="Antonio Garcia" \
+    version="1.0" 
+    
 
 # Set our main directory where we´re going to work
 WORKDIR /app
