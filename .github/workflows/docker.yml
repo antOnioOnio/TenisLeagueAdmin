@@ -1,3 +1,5 @@
+# this workflow builds and push the images into github container registry.
+
 name: Publish Docker image
 on: 
   push:
