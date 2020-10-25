@@ -115,7 +115,16 @@ Se ha configurado la publicación de los contenederos en dos registros de imáge
 
 Si bien es cierto que se podría haber creado una github action para crear la imagen y subirla tanto a github container registry como a dockerhub, se ha realizado por separado por dos razones. La primera es para aprender ambos entornos y la segunda para poder comparar el tiempo de construcción y publicación en ambos. En este último aspecto, el tiempo de medio de github es de aproximadamente un minuto, mientras que para dockerhub el tiempo no ha bajado nunca de 2 minutos. 
 
+### Descarga y testeo de la imagen
+Para descargar la imagen use el siguiente comando:
 
+     docker pull antonioonio/tenisleagueadmin
+
+Para ejecutarla use el siguiente comando:
+
+    docker run -t -v `pwd`:/test antonioonio/tenisleagueadmin
+    
+    
 # Issues abiertos y milestones
 + [Aquí](https://github.com/antOnioOnio/TenisLeagueAdmin/issues) puedes encontrar los distintos issues abiertos y cerrados hasta la fecha.
 + [Aquí](https://github.com/antOnioOnio/TenisLeagueAdmin/milestones) puedes consultar los issues relaciondos con los milestone, los cuáles determinan los puntos claves en el desarrollo de este proyecto.
