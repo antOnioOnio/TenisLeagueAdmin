@@ -90,8 +90,14 @@ La elección para este proyecto esta clara, Alpine, por las razones comentadas.
 Cabe destacar que la elección de esta versión no nos ata a esta versión para siempre ya que cambiar entre ellas es sencillo y rápido.
 
 ## Dockerfile
-Nuestro [Dockerfile](/Dockerfile) es el encargado de construir nuestro imagen o entorno donde se ejecutarán los tests. A continuación se explican las lineas clave de este.
-Empezamos estableciendo nuestro directorio de trabajo donde se ejecutara nuestra app.
+Nuestro [Dockerfile](/Dockerfile) es el encargado de construir nuestro imagen o entorno donde se ejecutarán los tests. A continuación se explican las líneas clave de este.
+
+Lo primero que se hace es establecer nuestra imagen base. Esta imagen ya trae nuestro task runner instalado, por lo que no tenemos que instalarlo aparte.
+
+    FROM node:14-stretch-slim
+
+
+Establecemos nuestro directorio de trabajo donde se ejecutara nuestra app.
      
     WORKDIR /app
 A continuación instalamos nuestras dependencias necesarías, las cuáles estan dentro de nuestro archivo package.json. Para ello entonces copiamos dicho archivo a nuestro directorio de trabajo y las ejecutamos.
