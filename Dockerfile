@@ -14,8 +14,8 @@ COPY package.json .
 RUN npm install
 
 # Move our needed files
-COPY ./src ./src
-COPY ./test ./test
+# COPY ./src ./src
+# COPY ./test ./test
 
 # Set the command to execute
 CMD ["npm", "test"]

@@ -105,11 +105,6 @@ A continuación instalamos nuestras dependencias necesarías, las cuáles estan 
     COPY package.json .
     RUN npm install
 
-Ahora lo que necesitamos son nuestros archivos esenciales para poder correr nuestras pruebas, esto es nuestros ficheros de tests y nuestros ficheros testeados.
-
-    COPY ./src ./src
-    COPY ./test ./test
-
 Por último necesitamos establecer el comando a ejecutar cuando corramos nuestra imagen.
 
     CMD ["npm", "test"]
