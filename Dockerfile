@@ -5,7 +5,7 @@ Label maintainer="Antonio Garcia" \
     
 
 # Set our main directory where we´re going to work
-WORKDIR /app
+WORKDIR /test
 
 # Copy our config file into our image
 COPY package*.json ./
