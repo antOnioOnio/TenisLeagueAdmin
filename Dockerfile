@@ -1,4 +1,4 @@
-FROM node:14-alpine
+FROM node:14-alpine AS base
 
 Label maintainer="Antonio Garcia" \
     version="1.0" 
@@ -8,10 +8,11 @@ Label maintainer="Antonio Garcia" \
 WORKDIR /app
 
 # Copy our config file into our image
-COPY package.json .
+COPY package*.json ./
 
 # Install dependencies
 RUN npm install
+
 
 # Set the command to execute
 CMD ["npm", "test"]

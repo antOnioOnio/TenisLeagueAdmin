@@ -94,7 +94,7 @@ Nuestro [Dockerfile](/Dockerfile) es el encargado de construir nuestro imagen o 
 
 Lo primero que se hace es establecer nuestra imagen base. Esta imagen ya trae nuestro task runner instalado, por lo que no tenemos que instalarlo aparte.
 
-    FROM node:14-stretch-slim
+    FROM node:14-alpine
 
 
 Establecemos nuestro directorio de trabajo donde se ejecutara nuestra app.
