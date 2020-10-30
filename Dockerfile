@@ -1,11 +1,11 @@
-FROM node:14-alpine AS base
+FROM node:14-alpine
 
-Label maintainer="Antonio Garcia" \
-    version="1.0" 
-    
+LABEL maintainer="Antonio Garcia" version="1.0.1"
 
-# Set our main directory where we´re going to work
-WORKDIR /test
+RUN addgroup -S antg && adduser -S ant -G antg
+
+# User without privileges
+USER ant
 
 # Copy our config file into our image
 COPY package*.json ./
@@ -13,6 +13,12 @@ COPY package*.json ./
 # Install dependencies
 RUN npm install
 
+# delete our files
+RUN rm package*.json
 
-# Set the command to execute
+VOLUME /test
+WORKDIR /test
+
+
+# Execute
 CMD ["npm", "test"]
