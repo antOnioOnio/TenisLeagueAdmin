@@ -6,7 +6,6 @@ RUN addgroup -S antonio && adduser -S antonio -G node \
     && mkdir /node_modules \
     && chown -R antonio /node_modules  \
     && chown -R antonio /usr/local/lib/node_modules \
-    && chown -R antonio /usr/local/bin
 
 # Copy our config file into our image
 
