@@ -2,15 +2,16 @@ FROM node:14-alpine
 
 LABEL maintainer="Antonio Garcia" version="1.0.1"
 
-#hsfujkihfuisa
 RUN addgroup -S antonio && adduser -S antonio -G node \
     && mkdir /node_modules \
     && chown -R antonio /node_modules  \
     # && chown -R antonio /usr/local/lib/node_modules \
-
     && chown -R antonio /usr/local/bin
 
 # Copy our config file into our image
+
+WORKDIR /
+
 
 COPY package*.json ./
 
