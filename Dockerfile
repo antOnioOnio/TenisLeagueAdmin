@@ -5,7 +5,7 @@ LABEL maintainer="Antonio Garcia" version="1.0.1"
 #Añadimos grupo y usuario sin privilegios, 
 # cremoas node_modules y damos permiso
 # a nuestro usuario
-RUN addgroup -S antonio && adduser -S antonio -G node \
+RUN addgroup -S antonio && adduser -S antonio -G antonio \
     && mkdir /node_modules \
     && chown -R antonio /node_modules  \
     && chown -R antonio /usr/local/bin
