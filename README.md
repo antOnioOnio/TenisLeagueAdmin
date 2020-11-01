@@ -60,7 +60,7 @@ Nuestro archivo vital del proyecto es [package.json](/package.json). Node guarda
 * Archivo explicación de [dockerfile](/docs/expDockerfile.md) y buenas prácticas
 * Archivo [Dockerfile](/Dockerfile)
 * Configuración de los [registros de imagenes](/docs/dockerRegistry.md) automáticos
-* Como testear las imágenes [aquí]()
+* Como testear las imágenes [aquí](/docs/correctoTesteo.md)
 
  
 # Issues abiertos y milestones
