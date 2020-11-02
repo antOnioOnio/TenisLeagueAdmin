@@ -49,7 +49,6 @@ class Player {
     }
         
 
-
     static validAge(age){
         return age > 0 ? true : false;
     }

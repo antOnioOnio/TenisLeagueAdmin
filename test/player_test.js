@@ -13,7 +13,7 @@ describe('Testing class Player', function () {
     "Brian", 
     "brian@correo.es", 
     "612453456", 
-    "medium", 
+    "MEDIO", 
     "33");
 
     it('get Id should returns 123456 ', function(){
@@ -28,8 +28,8 @@ describe('Testing class Player', function () {
     it('get tlf should returns 612453456', function(){
         expect(normalPlayer.tlf).to.equal("612453456");
     });
-    it('get level should returns medium ', function(){
-        expect(normalPlayer.level).to.equal("medium");
+    it('get level should returns MEDIO ', function(){
+        expect(normalPlayer.level).to.equal("MEDIO");
     });
     // it('get age should returns 33 ', function(){
     //     expect(normalPlayer.age).to.equal("33");
