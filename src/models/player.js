@@ -33,9 +33,21 @@ class Player {
 
     set tlf(tlf){this._tlf = tlf;}
 
-    set level(level){this._level = level;}
+    set level(level){
+        
+     if(level != "PRINCIPIANTE" && level!="MEDIO" && level!="AVANZADO" && level!="PRO")
+            throw new Error("nivel inválido");
+        else
+            this.level = level;
+    }
 
-    set age(age){this._age = age;}
+    set age(age){
+        if (age<0)
+            throw new Error("edad inválida");
+        else
+            this._age = age;
+    }
+        
 
 
     static validAge(age){
