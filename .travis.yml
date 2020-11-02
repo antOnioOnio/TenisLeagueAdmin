@@ -1,0 +1,13 @@
+language: node_js
+
+node_js:
+    - "10"
+    - "11"
+    - "12"
+    - "13"
+    - "14"
+  before_install:
+    - npm install -g mocha
+    - npm install -g chai
+
+script: cd src; mocha
