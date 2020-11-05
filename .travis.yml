@@ -6,4 +6,4 @@ services:
 before_install:
     - docker pull antonioonio/tenisleagueadmin
 
-script: docker run -t -v `pwd`:/test antonioonio/tenisLeagueAdmin
+script: docker run -t -v `pwd`:/test antonioonio/tenisleagueadmin
