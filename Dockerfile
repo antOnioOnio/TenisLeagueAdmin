@@ -5,15 +5,17 @@ LABEL maintainer="Antonio Garcia" version="1.0.1"
 #Añadimos grupo y usuario sin privilegios, 
 # cremoas node_modules y damos permiso
 # a nuestro usuario
-RUN addgroup -S antonio && adduser -S antonio -G antonio \
-    && mkdir /node_modules \
-    && chown -R antonio /node_modules  \
-    && chown -R antonio /usr/local/bin
+RUN  mkdir /node_modules \
+    && chown -R node /node_modules  \
+    && chown -R node /usr/local/bin
+
+
+# Cambiamos a usuario sin permisos
+USER node
 
 # Establecemos nuestro directorio donde instalaremos
 # nuestras dependencias
 WORKDIR /
-
 
 #Copiamos nuestras dependencias
 COPY package*.json ./
@@ -21,12 +23,6 @@ COPY package*.json ./
 
 # Instalamos nuestras
 RUN npm install
-
-# Borramos archivos innecesarios
-RUN rm package*.json
-
-# Cambiamos a usuario sin permisos
-USER antonio
 
 # Creamos volumen test
 VOLUME /test

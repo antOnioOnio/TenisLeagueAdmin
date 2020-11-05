@@ -6,7 +6,7 @@ A la hora de elegir una imagen base para un proyecto en node nos encontramos con
 Nos tenemos entonces que preguntar en que SO queremos que este basada nuestra imagen, entre las distintas opciones nos encontramos con Ubuntu, alpine,debian, centos, etc. Me he decantado por basar la imagen en Alpine ya que el tamaño que ofrece hace que la imagen resultante se construya rápidamente, lo he comparado con ubuntu y el tiempo de creación de la imagen prácticamente doblaba a la de alpine.
 
 ## Peso
-Basandonos en las imagenes que hay en dockerhub para node, nos encontramos con distintas versiones de esta propias del lenguaje.
+Basandonos en las imágenes que hay en dockerhub para node, nos encontramos con distintas versiones de esta propias del lenguaje.
 
 | Imagen |  Peso |
 | -- | -- |

@@ -23,26 +23,29 @@ Los issues creados para reflejar las historias de usuario
 +  [HU01](https://github.com/antOnioOnio/TenisLeagueAdmin/issues/3) 
 +  [HU02](https://github.com/antOnioOnio/TenisLeagueAdmin/issues/4) 
 
+## Integración continua
+
+
+
+
 
 ## Test del proyecto
 Para saber como testear el proyecto y la justificación de las herramientas elegidas para ello pulse [aquí](/docs/correctoTesteo.md)
 
 
 ## Taskfile
-
 En el siguiente [enlace](/docs/taskfile.md) encontrará una explicación de nuestro taskfile 
 
-
-# Docker
+## Docker
 
 * Elección del [contenedor base](/docs/contenedorBase.md)
 * Archivo explicación de [dockerfile](/docs/expDockerfile.md) y buenas prácticas
 * Archivo [Dockerfile](/Dockerfile)
-* Configuración de los [registros de imagenes](/docs/dockerRegistry.md) automáticos
+* Configuración de los [registros de imágenes](/docs/dockerRegistry.md) automáticos
 * Como testear las imágenes [aquí](/docs/correctoTesteo.md)
 
  
-# Issues abiertos y milestones
+## Issues abiertos y milestones
 + [Aquí](https://github.com/antOnioOnio/TenisLeagueAdmin/issues) puedes encontrar los distintos issues abiertos y cerrados hasta la fecha.
 + [Aquí](https://github.com/antOnioOnio/TenisLeagueAdmin/milestones) puedes consultar los issues relaciondos con los milestone, los cuáles determinan los puntos claves en el desarrollo de este proyecto.
 
