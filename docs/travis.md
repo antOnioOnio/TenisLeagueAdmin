@@ -44,4 +44,4 @@ En la anterior versión de .travis.yml haciamos uso de una imagen ya generada pa
 
 En esta otra versión le especificamos diferentes versiones de node así como las dependencias necesarias y obviamente el comando a ejecutar. 
 
-Obviamente no he utilizado esta versión porque tiene más sentido utilizar una imagen ya realizada con todo lo necesario instalado que ejecute los tests, incluso aunque por ahora nuestro archivo sea simple.
+Obviamente no he utilizado esta versión porque tiene más sentido utilizar una imagen ya realizada con todo lo necesario instalado que ejecute los tests, incluso aunque por ahora nuestro archivo sea simple, que volver a instalar las dependencias. 
