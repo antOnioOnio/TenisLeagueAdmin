@@ -25,7 +25,7 @@ Los issues creados para reflejar las historias de usuario
 
 ## Integración continua
 
-+ Travis 
++  Configuración realizada en travis puede consultarse [aquí](/docs/travis.md)
 
 
 
