@@ -2,7 +2,7 @@ version: 2.1
 jobs:
     run_tests:
         docker:
-            - image: circleci/node@3.0.0
+            - image: circleci/node:lts
 
         steps:
             - checkout
