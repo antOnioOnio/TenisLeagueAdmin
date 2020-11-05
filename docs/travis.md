@@ -1,6 +1,6 @@
-# Integración continua en travis.
+# Integración continua en Travis.
 
-## ¿ Qué es Travis y como usarlo ?
+## ¿ Qué es Travis y cómo usarlo ?
 Travis CI es un servicio de integración continua alojado que se utiliza para crear y probar proyectos de software. Podemos configurar dicha interacción continua para ejecutar determinadas pruebas cada vez que se interaccione con nuestro repositorio. Para poder utilzarlo tenemos que seguir unos sencillos pasos.
 
 + En primer lugar tenemos que registrarnos en su sitio web, pero Travis te ofrece la posibilidad de hacerlo directamente con nuestra cuenta de github.
@@ -35,6 +35,10 @@ Y por último ejecutamos el comando para pasar los tests.
     script: docker run -t -v `pwd`:/test antonioonio/tenisleagueadmin
 
 Un ejemplo de como se construye y ejecutan los tests puede verse [aquí](https://travis-ci.com/github/antOnioOnio/TenisLeagueAdmin/jobs/428995821/config)
+
+El historial de builds puede ser consultado [aquí](https://travis-ci.com/github/antOnioOnio/TenisLeagueAdmin/builds)
+
+
 
 ## Distinta versión de .travis.yml
 

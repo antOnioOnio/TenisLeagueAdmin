@@ -1,22 +1,28 @@
 version: 2.1
 jobs:
+    # Task name we give it to use it in our workflow
     run_tests:
         docker:
+            # This is the image we are going to use
             - image: circleci/node:lts
 
         steps:
             - checkout
             - run: 
+                # Install our dependencies (mocha and chai)
                 name: Install npm dependencies
                 command: |
                     npm install --save
             - run:
+                # Trigger our tests
                 name: Run tests
                 command: |
                     npm test
 
 
 workflows:
+    #Name of the task
   node-tests:
+    #Jobs to run
     jobs:
       - run_tests

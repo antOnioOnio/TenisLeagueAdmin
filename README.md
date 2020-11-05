@@ -28,6 +28,8 @@ Los issues creados para reflejar las historias de usuario
 +  Configuración realizada en travis puede consultarse [aquí](/docs/travis.md)
 
 
++  Configuración realizada en Circle CI  puede consultarse [aquí](/docs/circleci.md)
+
 
 ## Test del proyecto
 Para saber como testear el proyecto y la justificación de las herramientas elegidas para ello pulse [aquí](/docs/correctoTesteo.md)
