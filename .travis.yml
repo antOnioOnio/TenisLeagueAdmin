@@ -1,11 +1,9 @@
 language: node_js
 
-node_js:
-    - "10"
-    - "14"
-    
-before_install:
-    - npm install -g mocha
-    - npm install -g chai
+services: 
+    - docker
 
-script: npm test
+before_install:
+    - docker pull antonioonio/tenisleagueadmin
+
+script: docker run -t -v `pwd`:/test antonioonio/tenisLeagueAdmin
