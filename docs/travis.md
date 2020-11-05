@@ -13,7 +13,7 @@ Travis CI es un servicio de integración continua alojado que se utiliza para cr
 
 ## Uso en el proyecto
 
-Se han realizado dos tipos de ficheros aunque el final lo puedes encontrar [aquí](../../.travis.yml). Como vemos en esta versión se esta aprovechando la imagen ya creada en dockerhub para realizar los tests. A continuación explico los 4 apartados del fichero. 
+Se han realizado dos tipos de ficheros aunque el final lo puedes encontrar [aquí](../.travis.yml). Como vemos en esta versión se esta aprovechando la imagen ya creada en dockerhub para realizar los tests. A continuación explico los 4 apartados del fichero. 
 
 Especifamos el lenguaje utilizado que se va a utilizar
 
