@@ -12,20 +12,15 @@ El objetivo principal del proyecto es tener una API que proporcione a todos los 
 
 ## Instalación
 Para la instalación de nuestro proyecto y siga las instrucciones que se explican [aquí](/docs/guiaInstalacion.md) .
-
+s
 
 ## Desarrollo del proyecto
-El desarrollo del proyecto esta estructurado por semanas, las cuáles podéis consultar [aquí](/docs/pasos.md) . 
+El desarrollo del proyecto esta estructurado por semanas, las cuáles podéis consultar [aquí](/docs/pasos.md). 
 
-## Historias de usuario
-Los issues creados para reflejar las historias de usuario 
-
-+  [HU01](https://github.com/antOnioOnio/TenisLeagueAdmin/issues/3) 
-+  [HU02](https://github.com/antOnioOnio/TenisLeagueAdmin/issues/4) 
 
 ## Integración continua
 
-+  Configuración realizada en travis puede consultarse [aquí](/docs/travis.md)
++  Configuración realizada en Travis puede consultarse [aquí](/docs/travis.md)
 
 
 +  Configuración realizada en Circle CI  puede consultarse [aquí](/docs/circleci.md)
@@ -46,7 +41,12 @@ En el siguiente [enlace](/docs/taskfile.md) encontrará una explicación de nues
 * Configuración de los [registros de imágenes](/docs/dockerRegistry.md) automáticos
 * Como testear las imágenes [aquí](/docs/correctoTesteo.md)
 
- 
+## Historias de usuario
+Los issues creados para reflejar las historias de usuario 
+
++  [HU01](https://github.com/antOnioOnio/TenisLeagueAdmin/issues/3) 
++  [HU02](https://github.com/antOnioOnio/TenisLeagueAdmin/issues/4) 
+
 ## Issues abiertos y milestones
 + [Aquí](https://github.com/antOnioOnio/TenisLeagueAdmin/issues) puedes encontrar los distintos issues abiertos y cerrados hasta la fecha.
 + [Aquí](https://github.com/antOnioOnio/TenisLeagueAdmin/milestones) puedes consultar los issues relaciondos con los milestone, los cuáles determinan los puntos claves en el desarrollo de este proyecto.

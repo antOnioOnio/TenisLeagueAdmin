@@ -1,3 +1,6 @@
+
+
+
 class Player {
     constructor(id, name, email, tlf, level, age){
         this._id = id;

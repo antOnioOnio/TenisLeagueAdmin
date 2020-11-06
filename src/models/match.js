@@ -1,5 +1,7 @@
+const matches = require ('./player.js')
+
 class Match{
-    constructor(id, date, played, result, player1,player2){
+    constructor(id, date, played, result, player1, player2){
         this._id = id;
         this._date = date;
         this._played = played;
