@@ -29,7 +29,8 @@ Enlaces principales consultados son [este](https://www.capterra.com/continuous-i
 
 Al igual que Travis, aquí todo pasa por un fichero de configuración como ya hemos mencionado,[config.yml](/.circleci/config.yml). En este caso nuestro fichero se divide en dos:
 
-En esta primera parte especificamos la version de circle ci a usar y a continuación definimos el trabajo que vamos a realizar. En nuestro caso se realiza solo uno y le hemos dado como nombre run_tests. Dentro de este apartado especificamos la imagen de docker a utilizr y los pasos para ello. Siendo el primero ejecutar nuestras dependencias y por último, lanzar el comando propio. 
+En esta primera parte especificamos la version de circle ci a usar. En nuestro caso he elegido la versión lts, esta versión ha sido elegida entre [muchas otras](https://circleci.com/docs/2.0/circleci-images/#nodejs) por su estabilidad, soporte ofrecido (long time support) y por ser ampliamente recomendada. 
+A continuación definimos el trabajo que vamos a realizar sobre dicha imagen. En nuestro caso se realiza solo uno y le hemos dado como nombre run_tests. Dentro de este apartado especificamos la imagen de docker a utilizar y los pasos para ello. Siendo el primero ejecutar nuestras dependencias y por último, lanzar el comando propio. 
 ~~~
   version: 2.1
 jobs:
