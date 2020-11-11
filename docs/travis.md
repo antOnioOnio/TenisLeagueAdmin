@@ -13,30 +13,15 @@ Travis CI es un servicio de integración continua alojado que se utiliza para cr
 
 ## Uso en el proyecto
 
-Se han realizado dos tipos de ficheros aunque el final lo puedes encontrar [aquí](../.travis.yml). Como vemos en esta versión se esta aprovechando la imagen ya creada en dockerhub para realizar los tests. A continuación explico los 4 apartados del fichero. 
-
-Especifamos el lenguaje utilizado que se va a utilizar
-
-    language: node_js
-
-Especificamos que tipo de servicio queremos usar, en nuestro caso Docker.
-
-
-    services: 
-    - docker
-
-Le decimos a travis que acciones se tienen que llevar a cabo antes de la ejecución. En nuestro caso queremos disponer de la imagen que ya tenemos en dockerhub
-
-    before_install:
-    - docker pull antonioonio/tenisleagueadmin
-
-Y por último ejecutamos el comando para pasar los tests.
+Se han realizado dos tipos de ficheros aunque el final lo puedes encontrar [aquí](../.travis.yml). Como vemos en esta versión se esta aprovechando la imagen ya creada en dockerhub para realizar los tests. 
+Básicamente especificamos el comando a ejecutar a través del comando "script". No es necesario ni especificar el servicio ni descargar previamente la imagen, error corregido en esta versión. Ejecutando el comando es suficiente. 
 
     script: docker run -t -v `pwd`:/test antonioonio/tenisleagueadmin
 
 Un ejemplo de como se construye y ejecutan los tests puede verse [aquí](https://travis-ci.com/github/antOnioOnio/TenisLeagueAdmin/jobs/428995821/config)
 
 El historial de builds puede ser consultado [aquí](https://travis-ci.com/github/antOnioOnio/TenisLeagueAdmin/builds)
+
 
 
 

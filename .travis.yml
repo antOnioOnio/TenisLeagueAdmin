@@ -1,4 +1,1 @@
-# services: 
-#     - docker
-
 script: docker run -t -v `pwd`:/test antonioonio/tenisleagueadmin
