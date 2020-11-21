@@ -7,7 +7,7 @@ const enumLevels = ["PRINCIPIANTE" , "MEDIO","AVANZADO","PRO"];
 class League{
 
     constructor(){
-        this._id = '_' + Math.random().toString(36).substr(2, 9);;
+        this._id = '_' + Math.random().toString(36).substr(2, 9);
         this._matches = new Array();
         this.players = new Array();
     }
@@ -48,6 +48,17 @@ class League{
         })
 
         this.matches.push(match);
+    }
+
+    addPlayer(player){
+
+        this.players.forEach(element =>{
+            if(element.id == player.id){
+                throw new Error("Partido ya existente");
+            }
+        })
+
+        this.players.push(player);
     }
 
     deleteMatch(id){
