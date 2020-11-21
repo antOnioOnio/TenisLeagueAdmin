@@ -1,8 +1,8 @@
 const matches = require ('./player.js')
 
 class Match{
-    constructor(id, date, played, result, player1, player2){
-        this._id = id;
+    constructor(date, played, result, player1, player2){
+        this._id =  '_' + Math.random().toString(36).substr(2, 9);
         this._date = date;
         this._played = played;
         this._result = result;
