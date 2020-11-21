@@ -66,6 +66,24 @@ class League{
 
     }
 
+
+    getMatchesOfPlayer(name){
+        matchesOfPlayer = new Array();
+
+        this.matches.forEach(element =>{
+            if(element.name == name){
+                matchesOfPlayer.push(element);
+            }
+        })
+        if (matchesOfPlayer.length > 0){
+            return matchesOfPlayer;
+        }else {
+            throw new Error("No hay partidos para el jugador dado.");
+        }
+        
+    }
+
+
 }
 
 module.exports = League;
