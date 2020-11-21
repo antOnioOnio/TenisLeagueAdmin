@@ -1,9 +1,8 @@
-
-
+const enumLevels = ["PRINCIPIANTE" , "MEDIO","AVANZADO","PRO"];
 
 class Player {
     constructor(id, name, email, tlf, level, age){
-        this._id = id;
+        this._id = '_' + Math.random().toString(36).substr(2, 9);
         this._name = name;
         this._email = email;
         this._tlf = tlf;
@@ -37,11 +36,13 @@ class Player {
     set tlf(tlf){this._tlf = tlf;}
 
     set level(level){
-        
-     if(level != "PRINCIPIANTE" && level!="MEDIO" && level!="AVANZADO" && level!="PRO")
-            throw new Error("nivel inválido");
-        else
-            this.level = level;
+        var isGoodLevel = false;
+        enumLevels.forEach(element => {
+            if(level == element){
+                isGoodLevel = true;
+            }
+            
+        });
     }
 
     set age(age){
