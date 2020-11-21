@@ -61,6 +61,26 @@ class League{
         this.players.push(player);
     }
 
+
+    deletePlayer(id){
+        var found = false;
+        for( var i = 0; i < players.length; i++){ 
+    
+            if ( players[i].id === id) { 
+                arr.splice(i, 1);
+                found = true; 
+            }
+        
+        }
+        
+        if (found == false){
+            throw new Error("Partido no existe");
+        }
+
+    }
+
+
+
     deleteMatch(id){
         var found = false;
         for( var i = 0; i < matches.length; i++){ 
