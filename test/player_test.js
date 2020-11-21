@@ -9,16 +9,20 @@ const Player = require("../src/models/player");
 
 describe('Testing class Player', function () {
 
-    let normalPlayer = new Player("123456", 
+  
+    // test('Crear',()=>{
+    //     expect(new Player()).toBeInstanceOf(Player);
+        
+    // });
+
+
+    let normalPlayer = new Player( 
     "Brian", 
     "brian@correo.es", 
     "612453456", 
     "MEDIO", 
     "33");
 
-    it('get Id should returns 123456 ', function(){
-        expect(normalPlayer.id).to.equal("123456");
-    });
     it('get name should returns Brian ', function(){
         expect(normalPlayer.name).to.equal("Brian");
     });

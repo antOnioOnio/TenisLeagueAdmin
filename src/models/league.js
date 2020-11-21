@@ -1,6 +1,6 @@
 
 const matches = require ('./match.js');
-const players = requre ('./player.js');
+const players = require ('./player.js');
 
 const enumLevels = ["PRINCIPIANTE" , "MEDIO","AVANZADO","PRO"];
 
@@ -21,10 +21,13 @@ class League{
     set id(id){this._id = id;}
 
     set year(year){
-        if (year >0){
+
+        if (year > 0){
             this._year = year;
+        }else {
+            throw new Error("Año no válido");
         }
-        throw new Error("Año no válido");
+
     }
 
     set level(level){
@@ -35,6 +38,9 @@ class League{
             }
             
         });
+        if(isGoodLevel){
+            this._level = level;
+        }
     }
 
     set matches(matches){this._matches = matches;}
@@ -72,13 +78,12 @@ class League{
             }
         
         }
-        
+
         if (found == false){
             throw new Error("Partido no existe");
         }
 
     }
-
 
 
     deleteMatch(id){

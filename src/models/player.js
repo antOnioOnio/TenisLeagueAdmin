@@ -1,7 +1,7 @@
 const enumLevels = ["PRINCIPIANTE" , "MEDIO","AVANZADO","PRO"];
 
 class Player {
-    constructor(id, name, email, tlf, level, age){
+    constructor(name, email, tlf, level, age){
         this._id = '_' + Math.random().toString(36).substr(2, 9);
         this._name = name;
         this._email = email;
@@ -48,8 +48,10 @@ class Player {
     set age(age){
         if (age<0)
             throw new Error("edad inválida");
-        else
-            this._age = age;
+        else{
+              this._age = age;
+        }
+          
     }
         
 
