@@ -50,7 +50,21 @@ class League{
         this.matches.push(match);
     }
 
+    deleteMatch(id){
+        var found = false;
+        for( var i = 0; i < matches.length; i++){ 
+    
+            if ( matches[i].id === id) { 
+                arr.splice(i, 1);
+                found = true; 
+            }
+        
+        }
+        if (found == false){
+            throw new Error("Partido no existe");
+        }
 
+    }
 
 }
 
