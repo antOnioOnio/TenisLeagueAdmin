@@ -1,14 +1,15 @@
 
-const matches = require ('./match.js')
+const matches = require ('./match.js');
+const players = requre ('./player.js');
+
+const enumLevels = ["PRINCIPIANTE" , "MEDIO","AVANZADO","PRO"];
 
 class League{
-    constructor(id, year, level, matches=[] )
-    {
-        this._id = id;
-        this._year = year;
-        this._level = level;
-        this._matches = matches;
 
+    constructor(){
+        this._id = '_' + Math.random().toString(36).substr(2, 9);;
+        this._matches = new Array();
+        this.players = new Array();
     }
 
     get id(){return this._id;}
@@ -18,9 +19,39 @@ class League{
 
 
     set id(id){this._id = id;}
-    set year(year){this._year = year;}
-    set level(level){this._level = level;}
+
+    set year(year){
+        if (year >0){
+            this._year = year;
+        }
+        throw new Error("Año no válido");
+    }
+
+    set level(level){
+        var isGoodLevel = false;
+        enumLevels.forEach(element => {
+            if(level == element){
+                isGoodLevel = true;
+            }
+            
+        });
+    }
+
     set matches(matches){this._matches = matches;}
+
+    addMatch(match){
+
+        this.matches.forEach(element =>{
+            if(element.id == match.id){
+                throw new Error("Partido ya existente");
+            }
+        })
+
+        this.matches.push(match);
+    }
+
+
+
 }
 
 module.exports = League;
