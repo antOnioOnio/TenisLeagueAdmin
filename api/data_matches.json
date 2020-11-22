@@ -1,0 +1,16 @@
+{
+    "matches":[
+        {
+            "src":"/",
+            "dest":"/api/matches.js"
+        },
+        {
+            "src": "/matches", 
+            "methods": [
+                "POST", 
+                "GET"
+            ],
+            "dest": "/api/users.js"
+        }
+    ]
+}
