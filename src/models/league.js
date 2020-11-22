@@ -21,7 +21,6 @@ class League{
     set id(id){this._id = id;}
 
     set year(year){
-
         if (year > 0){
             this._year = year;
         }else {
@@ -100,11 +99,13 @@ class League{
     }
 
 
+
     getMatchesOfPlayer(name){
         matchesOfPlayer = new Array();
 
         this._matches.forEach(element =>{
-            if(element.name == name){
+            if(element.player1 == name || element.player2 == name){
+
                 matchesOfPlayer.push(element);
             }
         })
