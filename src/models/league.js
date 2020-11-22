@@ -1,4 +1,5 @@
 
+const Match = require('./match.js');
 const matches = require ('./match.js');
 const players = require ('./player.js');
 
@@ -11,6 +12,7 @@ class League{
         this._matches = new Array();
         this._players = new Array();
     }
+
 
     get id(){return this._id;}
     get year(){return this._year;}
@@ -45,6 +47,7 @@ class League{
     set matches(matches){this._matches = matches;}
 
     addMatch(match){
+
         this._matches.forEach(element =>{
             if(element.id == match.id){
                 throw new Error("Partido ya existente");
@@ -98,8 +101,6 @@ class League{
         return found;
     }
 
-
-
     getMatchesOfPlayer(name){
         matchesOfPlayer = new Array();
 
@@ -116,6 +117,34 @@ class League{
         }
         
     }
+
+
+    fromJson(json){
+        console.log("fromJson called");
+        
+
+        json.forEach((item) => {
+            this._year = item.year;
+            this._level = item.level;
+
+            item.matches.forEach((match)=> {
+                var new_match = new Match(
+                    match.date,
+                    match.played,
+                    match.result,
+                    match.player1,
+                    match.player2,
+                );
+
+                new_match.id = match.id;
+                this.addMatch(new_match);
+            });
+
+            // console.log('TID: ' + item.tid);
+            // console.log('FROMWHO: ' + item.fromWho);
+          });
+    }
+
 
 }
 
