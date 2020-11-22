@@ -1,6 +1,7 @@
 const matches = require ('./player.js')
 
 class Match{
+    
     constructor(date, played, result, player1, player2){
         this._id =  '_' + Math.random().toString(36).substr(2, 9);
         this._date = date;
@@ -38,7 +39,7 @@ class Match{
 
     set player2(player){this._player2 = player;}
 
-    
+
 
 }
 

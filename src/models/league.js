@@ -89,6 +89,26 @@ class League{
     }
 
     /**
+     * 
+     * @param {*} data 
+     */
+    addMatchFromAPI(data){
+        
+        var new_match = new Match(
+            data.date,
+            data.played,
+            data.result,
+            data.player1,
+            data.player2,
+        );
+        new_match.id = '_' + Math.random().toString(36).substr(2, 9);
+
+        this.addMatch(new_match);
+        
+        return new_match;
+    }
+
+    /**
      * Add player to our league
      * @param {*} player 
      */
@@ -139,13 +159,9 @@ class League{
      * @param {*} name 
      */
     getMatchesOfPlayer(name){
-
-        console.log("getMatchesOfPlayer called")
         var matchesOfPlayer = new Array();
 
         this._matches.forEach(element =>{
-            console.log("player 1-->" + element.player1 );
-            console.log("player 2-->" + element.player2 );
             if(element.player1 == name || element.player2 == name){
         
                 matchesOfPlayer.push(element);
@@ -162,9 +178,7 @@ class League{
      * @param {*} playerName 
      */
     isPlayerInTheLeague(playerName){
-        console.log("isPlayerInTheLeague called");
         for( var i = 0; i < this._players.length; i++){ 
-            console.log("PLAYER VISITED--> " + this._players[i].name );
             if ( this._players[i].name === playerName) { 
                 return true;
             }
