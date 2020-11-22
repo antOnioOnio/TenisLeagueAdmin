@@ -6,22 +6,49 @@ const enumLevels = ["PRINCIPIANTE" , "MEDIO","AVANZADO","PRO"];
 
 class League{
 
+    /**
+     * Default constructor 
+     */
     constructor(){
         this._id = '_' + Math.random().toString(36).substr(2, 9);
         this._matches = new Array();
         this._players = new Array();
     }
 
-
+    /**
+     * @return Main object identifier 
+     */
     get id(){return this._id;}
+
+    /**
+     * @return Main object identifier 
+     */
     get year(){return this._year;}
+
+
+    /**
+     * @return League level
+     */
     get level(){return this._level;}
+    
+    /**
+     * @return Array of league matches
+     */
     get matches(){return this._matches;}
+
+    /**
+     * @return Array of league players
+     */
     get players(){return this._players;}
 
-
+    /**
+     * @param new uuid
+     */
     set id(id){this._id = id;}
 
+    /**
+     * @param year to st
+     */
     set year(year){
         if (year > 0){
             this._year = year;
@@ -31,6 +58,9 @@ class League{
 
     }
 
+    /**
+     * @param level to set
+     */
     set level(level){
         var isGoodLevel = false;
         enumLevels.forEach(element => {
@@ -44,31 +74,34 @@ class League{
         }
     }
 
+    /**
+     * @param matches array to set 
+     */
     set matches(matches){this._matches = matches;}
 
 
+    /**
+     * Add match to our league
+     * @param {*} match 
+     */
     addMatch(match){
-        // this._matches.forEach(element =>{
-        //     if(element.id == match.id){
-        //         throw new Error("Partido ya existente");
-        //     }
-        // })
-
         this._matches.push(match);
     }
 
+    /**
+     * Add player to our league
+     * @param {*} player 
+     */
     addPlayer(player){
-
-        // this._players.forEach(element =>{
-        //     if(element.id == player.id){
-        //         throw new Error("Partido ya existente");
-        //     }
-        // })
-
         this._players.push(player);
     }
 
 
+    /**
+     * Delete player by id
+     * 
+     * @param {*} id 
+     */
     deletePlayer(id){
         for( var i = 0; i < _players.length; i++){ 
     
@@ -84,6 +117,10 @@ class League{
     }
 
 
+    /**
+     * Delete match by id
+     * @param {*} id 
+     */
     deleteMatch(id){
         for( var i = 0; i < this._matches.length; i++){ 
     
@@ -97,6 +134,10 @@ class League{
         return false;
     }
 
+    /**
+     * Return the matches where name has played or is going to play
+     * @param {*} name 
+     */
     getMatchesOfPlayer(name){
 
         console.log("getMatchesOfPlayer called")
@@ -116,6 +157,10 @@ class League{
     }
 
 
+    /**
+     * Return whether playerName is our league or not
+     * @param {*} playerName 
+     */
     isPlayerInTheLeague(playerName){
         console.log("isPlayerInTheLeague called");
         for( var i = 0; i < this._players.length; i++){ 
@@ -129,6 +174,10 @@ class League{
     }
 
 
+    /**
+     * Parse for our raw data
+     * @param {*} json 
+     */
     fromJson(json){
         json.forEach((item) => {
             this._year = item.year;
