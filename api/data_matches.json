@@ -23,7 +23,7 @@
             "date":"30/1/2020",
             "played":true,
             "result":"6/3, 6/3",
-            "player1":"Rodrigo hernandezz",
+            "player1":"Rodrigo hernandez",
             "player2":"Joselito García"
         
         },
@@ -69,7 +69,7 @@
             "played":true,
             "result":"6/2, 6/2",
             "player1":"Antonio Garcia",
-            "player2":"Novak Djokovic"
+            "player2":"John Isner"
         
         },
         {
@@ -80,62 +80,7 @@
             "player1":"Francisco Franco",
             "player2":"Antonio Garcia"
         
-        },
-        {
-            "id":"2f5352d0-2cbd-11eb-adc1-0242ac120002",
-            "date":"15/02/2020",
-            "played":true,
-            "result":"6/2, 6/2",
-            "player1":"Roman Polanski",
-            "player2":"Joselito García"
-        
-        },
-        {
-            "id":"2f5354d0-2cbd-11eb-adc1-0242ac120002",
-            "date":"18/02/2020",
-            "played":true,
-            "result":"6/2, 6/2",
-            "player1":"Antonio Garcia",
-            "player2":"Jose Antonio Martín"
-        
-        },
-        {
-            "id":"2f5356d0-2cbd-11eb-adc1-0242ac120002",
-            "date":"20/02/2020",
-            "played":true,
-            "result":"6/2, 6/2",
-            "player1":"Ramon Ramonez",
-            "player2":"Joselito García"
-        
-        },        
-        {
-            "id":"2f5358d0-2cbd-11eb-adc1-0242ac120002",
-            "date":"22/02/2020",
-            "played":true,
-            "result":"6/2, 6/2",
-            "player1":"Roger Federer",
-            "player2":"Joselito García"
-        
-        },
-
-        {
-            "id":"4f5353d0-2cbd-11eb-adc1-0242ac120002",
-            "date":"23/02/2020",
-            "played":true,
-            "result":"6/2, 6/2",
-            "player1":"David Gonzalez",
-            "player2":"Antonio Garcia"
-        
-        },
-        {
-            "id":"6f5353d0-2cbd-11eb-adc1-0242ac120002",
-            "date":"24/02/2020",
-            "played":true,
-            "result":"6/2, 6/2",
-            "player1":"Paquito Perez",
-            "player2":"David Gonzalez"
-        
-        },
+        },     
         {
             "id":"8f5353d0-2cbd-11eb-adc1-0242ac120002",
             "date":"26/02/2020",
@@ -146,5 +91,84 @@
         
         }
 
+    ],
+    "players":[
+        {
+            "name": "Antonio Garcia",
+            "email": "antonio@gmail.com",
+            "tlf": "669080808",
+            "level": "PRO",
+            "age": "33"
+        },
+        {
+            "name": "Paquito Perez",
+            "email": "paquito@gmail.com",
+            "tlf": "669080810",
+            "level": "PRO",
+            "age": "33"
+        },
+        {
+            "name": "Joselito García",
+            "email": "Joselito@gmail.com",
+            "tlf": "669080810",
+            "level": "PRO",
+            "age": "33"
+        },
+        {
+            "name": "Rogelio Martín",
+            "email": "Rogelio@gmail.com",
+            "tlf": "669080814",
+            "level": "PRO",
+            "age": "33"
+        },
+        {
+            "name": "Rodrigo hernandez",
+            "email": "Rodrigo@gmail.com",
+            "tlf": "669080850",
+            "level": "PRO",
+            "age": "33"
+        },
+        {
+            "name": "Roger Federer",
+            "email": "Roger@gmail.com",
+            "tlf": "669080890",
+            "level": "PRO",
+            "age": "33"
+        },
+        {
+            "name": "Jose Antonio Rienda",
+            "email": "Rienda@gmail.com",
+            "tlf": "659080808",
+            "level": "PRO",
+            "age": "33"
+        },
+        {
+            "name": "Benito De Pedro",
+            "email": "Benito@gmail.com",
+            "tlf": "670080808",
+            "level": "PRO",
+            "age": "33"
+        },
+        {
+            "name": "John Isner",
+            "email": "John@gmail.com",
+            "tlf": "610080808",
+            "level": "PRO",
+            "age": "33"
+        },
+        {
+            "name": "Francisco Franco",
+            "email": "Franco@gmail.com",
+            "tlf": "610080840",
+            "level": "PRO",
+            "age": "33"
+        },
+              {
+            "name": "Rafael Nadal",
+            "email": "Rafael@gmail.com",
+            "tlf": "610080820",
+            "level": "PRO",
+            "age": "33"
+        }
     ]
 }
