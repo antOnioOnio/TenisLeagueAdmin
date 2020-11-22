@@ -25,13 +25,13 @@ module.exports = (req,res) => {
         }
     }else if (req.method == 'POST'){
 
-        const { date, played, result, player1, player2 } = req.body;
+        const { name, email, tlf, level, age } = req.body;
         
         var myJson = JSON.parse(req.body);
 
-        var match = league.addMatchFromAPI(myJson);
+        var player = league.addPlayerFromAPI(myJson);
 
-        res.send({status: "Posted, new match id: " + match.id });
+        res.status(200).send({status: "Posted, new player id: "+ player.id });
 
     }
 }

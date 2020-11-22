@@ -119,6 +119,25 @@ class League{
 
     /**
      * 
+     * @param {*} name 
+     */
+    addPlayerFromAPI(data){
+        var new_Player = new Player(
+            data.name,
+            data.email,
+            data.tlf,
+            data.level,
+            data.age,
+        );
+        new_Player.id = '_' + Math.random().toString(36).substr(2, 9);
+
+        this.addPlayer(new_Player);
+
+        return new_Player;
+    }
+
+    /**
+     * 
      */
     getPlayerByName(name){
 
