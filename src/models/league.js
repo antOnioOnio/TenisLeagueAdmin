@@ -1,7 +1,6 @@
 
 const Match = require('./match.js');
-const matches = require ('./match.js');
-const players = require ('./player.js');
+const Player = require ('./player.js');
 
 const enumLevels = ["PRINCIPIANTE" , "MEDIO","AVANZADO","PRO"];
 
@@ -18,6 +17,7 @@ class League{
     get year(){return this._year;}
     get level(){return this._level;}
     get matches(){return this._matches;}
+    get players(){return this._players;}
 
 
     set id(id){this._id = id;}
@@ -46,83 +46,90 @@ class League{
 
     set matches(matches){this._matches = matches;}
 
-    addMatch(match){
 
-        this._matches.forEach(element =>{
-            if(element.id == match.id){
-                throw new Error("Partido ya existente");
-            }
-        })
+    addMatch(match){
+        // this._matches.forEach(element =>{
+        //     if(element.id == match.id){
+        //         throw new Error("Partido ya existente");
+        //     }
+        // })
 
         this._matches.push(match);
     }
 
     addPlayer(player){
 
-        this._players.forEach(element =>{
-            if(element.id == player.id){
-                throw new Error("Partido ya existente");
-            }
-        })
+        // this._players.forEach(element =>{
+        //     if(element.id == player.id){
+        //         throw new Error("Partido ya existente");
+        //     }
+        // })
 
         this._players.push(player);
     }
 
 
     deletePlayer(id){
-        var found = false;
         for( var i = 0; i < _players.length; i++){ 
     
             if ( _players[i].id === id) { 
                 arr.splice(i, 1);
-                found = true; 
+                
+                return true;
             }
         
         }
 
-        if (found == false){
-            throw new Error("Partido no existe");
-        }
+        return false;
     }
 
 
     deleteMatch(id){
-
-        var found = false;
         for( var i = 0; i < this._matches.length; i++){ 
     
             if ( this._matches[i].id === id) { 
         
                 this._matches.splice(i, 1);
-                found = true; 
+                return true; 
             }
         
         }
-        return found;
+        return false;
     }
 
     getMatchesOfPlayer(name){
-        matchesOfPlayer = new Array();
+
+        console.log("getMatchesOfPlayer called")
+        var matchesOfPlayer = new Array();
 
         this._matches.forEach(element =>{
+            console.log("player 1-->" + element.player1 );
+            console.log("player 2-->" + element.player2 );
             if(element.player1 == name || element.player2 == name){
-
+        
                 matchesOfPlayer.push(element);
             }
         })
         if (matchesOfPlayer.length > 0){
             return matchesOfPlayer;
-        }else {
-            throw new Error("No hay partidos para el jugador dado.");
         }
+    }
+
+
+    isPlayerInTheLeague(playerName){
+        console.log("isPlayerInTheLeague called");
+        for( var i = 0; i < this._players.length; i++){ 
+            console.log("PLAYER VISITED--> " + this._players[i].name );
+            if ( this._players[i].name === playerName) { 
+                return true;
+            }
         
+        }
+        return false;
     }
 
 
     fromJson(json){
-        console.log("fromJson called");
-        
-
         json.forEach((item) => {
             this._year = item.year;
             this._level = item.level;
@@ -140,8 +147,20 @@ class League{
                 this.addMatch(new_match);
             });
 
-            // console.log('TID: ' + item.tid);
-            // console.log('FROMWHO: ' + item.fromWho);
+            item.players.forEach((player)=> {
+                var new_player = new Player(
+                    player.name,
+                    player.email,
+                    player.tlf,
+                    player.level,
+                    player.age,
+                );
+
+                new_player.id = player.id;
+                this.addPlayer(new_player);
+            });
+
+
           });
     }
 

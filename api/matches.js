@@ -2,21 +2,23 @@
 var data = require("./data_matches.json");
 const League = require("../src/models/league");
 
+var league = new League();
+league.fromJson(data);
+
 module.exports = (req,res) => {
     console.log(req.query);
     console.log(req.query.name);
 
-    if (req.method == 'GET'){
     
-        var league = new League();
+    if (req.method == 'GET'){
+        var name = req.query.name;
 
-        league.fromJson(data);
-
-        res.json([
-            {nombre : "Paquito"},
-            {nombre : "Alfonsito"},
-        ])
-    }else{
-
+        if (league.isPlayerInTheLeague(name)){
+            var matches = league.getMatchesOfPlayer(name);
+            console.log(matches);
+            res.json({
+                matches
+            })
+        }
     }
 }
