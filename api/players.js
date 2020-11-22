@@ -6,21 +6,19 @@ var league = new League();
 league.fromJson(data);
 
 module.exports = (req,res) => {
-
+    
     if (req.method == 'GET'){
         var name = req.query.name;
 
         if (name == null){
-            res.status(200).send(league.matches);
+            res.status(200).send(league.players);
         }else {
             if (league.isPlayerInTheLeague(name)){
-                var matches = league.getMatchesOfPlayer(name);
+
+                var player = league.getPlayerByName(name);
+
+                res.status(200).send(player);
                 
-                if ( matches.length > 0){
-                    res.status(200).send(matches)
-                }else {
-                    res.status(200).send("Este jugador todavía no ha jugado")
-                }
             }else {
                 res.status(200).send("Este jugador no juega la liga")
             }

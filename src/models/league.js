@@ -104,7 +104,7 @@ class League{
         new_match.id = '_' + Math.random().toString(36).substr(2, 9);
 
         this.addMatch(new_match);
-        
+
         return new_match;
     }
 
@@ -116,6 +116,23 @@ class League{
         this._players.push(player);
     }
 
+
+    /**
+     * 
+     */
+    getPlayerByName(name){
+
+        for( var i = 0; i < this._players.length; i++){ 
+    
+            if ( this._players[i].name === name) { 
+    
+                return this._players[i];
+            }
+        
+        }
+
+        return null;
+    }
 
     /**
      * Delete player by id
@@ -153,6 +170,7 @@ class League{
         }
         return false;
     }
+
 
     /**
      * Return the matches where name has played or is going to play

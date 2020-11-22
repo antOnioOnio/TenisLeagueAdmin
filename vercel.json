@@ -10,7 +10,15 @@
                 "POST", 
                 "GET"
             ],
-            "dest": "/api/users.js"
+            "dest": "/api/matches.js"
+        },
+        {
+            "src": "/players", 
+            "methods": [
+                "POST", 
+                "GET"
+            ],
+            "dest": "/api/players.js"
         }
     ]
 }
