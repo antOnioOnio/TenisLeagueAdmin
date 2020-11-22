@@ -8,6 +8,8 @@ describe('Testing class Match', function () {
 
     let normalMatch = new Match("22/10/20", true, "6-2, 6-2", "antonio", "joselito");
 
+
+
     it('get date should returns 22/10/20 ', function(){
         expect(normalMatch.date).to.equal("22/10/20");
     });
@@ -23,4 +25,7 @@ describe('Testing class Match', function () {
     it('get player2 should returns joselito ', function(){
         expect(normalMatch.player2).to.equal("joselito");
     });
+
+
+
 });

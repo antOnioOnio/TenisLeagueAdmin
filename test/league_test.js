@@ -12,8 +12,24 @@ describe('Testing class League', function () {
     league.year = 2021;
     league.level = "AVANZADO"
     
-    league.addMatch(normalMatch);
     
+    
+    it('Añadiendo partido a la liga', function () {
+        league.addMatch(normalMatch);
+       
+
+        expect(league.matches).to.have.lengthOf(1)
+    })
+
+
+
+    it('Eliminando un partido de forma correcta', function () {
+    
+        const remove = league.deleteMatch(league.matches[0].id)
+    
+        expect(remove).to.be.equal(true)
+        expect(league.matches).to.have.lengthOf(0)
+    })
 
     it('get year should returns 2021 ', function(){
         expect(league.year).to.equal(2021);
@@ -21,5 +37,7 @@ describe('Testing class League', function () {
     it('get level should returns avanzado ', function(){
         expect(league.level).to.equal("AVANZADO");
     });
+
+
 
 });

@@ -9,7 +9,7 @@ class League{
     constructor(){
         this._id = '_' + Math.random().toString(36).substr(2, 9);
         this._matches = new Array();
-        this.players = new Array();
+        this._players = new Array();
     }
 
     get id(){return this._id;}
@@ -46,33 +46,32 @@ class League{
     set matches(matches){this._matches = matches;}
 
     addMatch(match){
-
-        this.matches.forEach(element =>{
+        this._matches.forEach(element =>{
             if(element.id == match.id){
                 throw new Error("Partido ya existente");
             }
         })
 
-        this.matches.push(match);
+        this._matches.push(match);
     }
 
     addPlayer(player){
 
-        this.players.forEach(element =>{
+        this._players.forEach(element =>{
             if(element.id == player.id){
                 throw new Error("Partido ya existente");
             }
         })
 
-        this.players.push(player);
+        this._players.push(player);
     }
 
 
     deletePlayer(id){
         var found = false;
-        for( var i = 0; i < players.length; i++){ 
+        for( var i = 0; i < _players.length; i++){ 
     
-            if ( players[i].id === id) { 
+            if ( _players[i].id === id) { 
                 arr.splice(i, 1);
                 found = true; 
             }
@@ -82,31 +81,29 @@ class League{
         if (found == false){
             throw new Error("Partido no existe");
         }
-
     }
 
 
     deleteMatch(id){
+
         var found = false;
-        for( var i = 0; i < matches.length; i++){ 
+        for( var i = 0; i < this._matches.length; i++){ 
     
-            if ( matches[i].id === id) { 
-                arr.splice(i, 1);
+            if ( this._matches[i].id === id) { 
+        
+                this._matches.splice(i, 1);
                 found = true; 
             }
         
         }
-        if (found == false){
-            throw new Error("Partido no existe");
-        }
-
+        return found;
     }
 
 
     getMatchesOfPlayer(name){
         matchesOfPlayer = new Array();
 
-        this.matches.forEach(element =>{
+        this._matches.forEach(element =>{
             if(element.name == name){
                 matchesOfPlayer.push(element);
             }
@@ -118,7 +115,6 @@ class League{
         }
         
     }
-
 
 }
 
