@@ -13,7 +13,7 @@ jobs:
     steps:
       - name: Checkout the repository
         uses: actions/checkout@master
-    - name: Install Dependencies
+      - name: Install Dependencies
         run: npm install
         working-directory: ./telegramBot/functions
       
