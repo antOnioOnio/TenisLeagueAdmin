@@ -12,13 +12,19 @@ if (Object.keys(functions.config()).length){
 const bot = new Telegraf(config.service.telegram_key);
 
 
+
 bot.hears('hi', (ctx) => ctx.reply('Hey there'));
 
 bot.launch();
 
+
+// Posibilites
 bot.help(ctx => ctx.reply('/All \t Muestra todos los partidos de la actual liga.\n/Today \tMuestra todos los partidos que se juegan hoy \n/Players \t Muestra los jugadores de la actual liga' ))
 
 
+/**
+ * 
+ */
 bot.command('Today', async (ctx) => {
 
   let res = 'Los partidos que se juegan hoy son:\n'
@@ -34,7 +40,9 @@ bot.command('Today', async (ctx) => {
   ctx.reply(res)
 })
 
-
+/**
+ * 
+ */
 bot.command('All', async (ctx) => {
 
   let res = 'Todos los partidos de la liga son:\n'
@@ -49,6 +57,9 @@ bot.command('All', async (ctx) => {
   ctx.reply(res)
 })
 
+/**
+ * 
+ */
 bot.command('Players', async (ctx) => {
 
   let res = 'Todos los jugadores de la liga son:\n'
