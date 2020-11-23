@@ -209,6 +209,31 @@ class League{
         }
     }
 
+    /**
+     * Return the matches where name has played or is going to play
+     * @param {*} name 
+     */
+    getMatchesOfToday(){
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+        var yyyy = today.getFullYear();
+
+        today = dd + '/' + mm + '/' + yyyy;
+      
+
+        var matchesOfToday = new Array();
+
+        this._matches.forEach(element =>{
+            if(element.date == today ){
+        
+                matchesOfToday.push(element);
+            }
+        })
+        
+        return matchesOfToday;
+        
+    }
 
     /**
      * Return whether playerName is our league or not
