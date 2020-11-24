@@ -6,4 +6,4 @@ test: src/models/player.js
 
 taskfile: package.json
 
-URL: https://tenis-league-admin.vercel.app/api/matches?name=Antonio%20Garcia
+URL: https://tenis-league-admin.vercel.app/api/matches?name=John%20Isner
