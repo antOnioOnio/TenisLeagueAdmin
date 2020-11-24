@@ -15,7 +15,7 @@ const bot = new Telegraf(config.service.telegram_key);
 
 bot.hears('hi', (ctx) => ctx.reply('Hey there'));
 
-bot.launch();
+// bot.launch();
 
 
 // Posibilites
