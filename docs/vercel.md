@@ -58,6 +58,6 @@ La respuesta nos indica si ha sido correcta o no, en caso afirmativo nos indica 
 
 ## Archivos 
 
-Las llamadas a la API relacionadas con los partidos se realizan desde [matches.js](../api/matches.js) mientras que las relacionadas con los jugadores se realizan desde [players.js](../api/players.js) otro. 
+Las llamadas a la API relacionadas con los partidos se realizan desde [matches.js](../api/matches.js) mientras que las relacionadas con los jugadores se realizan desde [players.js](../api/players.js). 
 La implementación de estos métodos esta escrita en nuestro fichero fuente [league.js](../src/models/league.js)
 
