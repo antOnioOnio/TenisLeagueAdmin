@@ -19,7 +19,7 @@ El desarrollo del proyecto esta estructurado por semanas, las cuáles podéis co
 
 ## Serverless
 
-Esta sección se puede dividir en dos principales apartados:
+Esta sección se puede dividir en dos apartados principales:
 * Despliegue de funciones en Vercel, la documentación propia se encuentra [aquí](/docs/vercel.md)
 
 * Desarrollo de un bot de telegram en firebase haciendo uso de las funciones desplegadas en vercel, la documentación la puede encontrar [aquí](/docs/firebase.md)
