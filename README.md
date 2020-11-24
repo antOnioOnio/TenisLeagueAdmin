@@ -12,16 +12,21 @@ El objetivo principal del proyecto es tener una API que proporcione a todos los 
 
 ## Instalación
 Para la instalación de nuestro proyecto y siga las instrucciones que se explican [aquí](/docs/guiaInstalacion.md) .
-s
+
 
 ## Desarrollo del proyecto
 El desarrollo del proyecto esta estructurado por semanas, las cuáles podéis consultar [aquí](/docs/pasos.md). 
 
+## Serverless
+
+Esta sección se puede dividir en dos principales apartados:
+* Despliegue de funciones en Vercel, la documentación propia se encuentra [aquí](/docs/vercel.md)
+
+* Desarrollo de un bot de telegram en firebase haciendo uso de las funciones desplegadas en vercel, la documentación la puede encontrar [aquí](/docs/firebase.md)
+
 
 ## Integración continua
-
 +  Configuración realizada en Travis puede consultarse [aquí](/docs/travis.md)
-
 
 +  Configuración realizada en Circle CI  puede consultarse [aquí](/docs/circleci.md)
 
