@@ -70,3 +70,8 @@ Telegram pone a nuestra disposición una API y una [documentación](https://core
 ![](../docs/images/webhook.png)
 
 
+## Integración Continua
+
+Firebase no esta integrado como vercel con github, por lo que para mantener actualizado el bot se ha desarrollado un [workflow](/.github/workflows/firebase.yml) para desplegar en firebase cada vez que tenemos un cambio sobre nuetro bot. Evitando de esta manera innecesarias actualizaciones. 
+
+Para la realización de esta tarea ha sido necesario visitar la [documentación](https://docs.github.com/es/free-pro-team@latest/actions/reference/workflow-syntax-for-github-actions) oficial  y [este](https://github.com/marketplace/actions/github-action-for-firebase) otro enlace.
