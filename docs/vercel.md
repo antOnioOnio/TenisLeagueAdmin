@@ -13,6 +13,16 @@ Se ha creado un archivo [vercel.json](../vercel.json) donde se especifican los d
 
 Otro archivo creado es [data.json](../api/data.json), el cual contiene los datos que por ahora se van a devolver en nuestros endpoints.
 
+He creado una función que parsea los datos a mi modelo para manejar las peticiones y devolver los datos pedidos. La función es fromJson() y se encuentra en el archivo [league.js](../src/models/league.js)
+
+
+## Archivos 
+
+Las llamadas a la API relacionadas con los partidos se realizan desde [matches.js](../api/matches.js) mientras que las relacionadas con los jugadores se realizan desde [players.js](../api/players.js). 
+
+La implementación de estos métodos esta escrita en nuestro fichero fuente [league.js](../src/models/league.js)
+
+
 ## Funciones desplegadas
 
 Como se ha mencionado antes se han configurado lost endpoint para que también acepten el método POST. Simplemente en nuestro archivo vamos a diferenciar si la petición es get o post y actuar en consecuencia. Los métodos implementados son los siguientes:
@@ -56,8 +66,4 @@ La respuesta nos indica si ha sido correcta o no, en caso afirmativo nos indica 
 ![](./images/postPlayerRespond.png) 
 
 
-## Archivos 
-
-Las llamadas a la API relacionadas con los partidos se realizan desde [matches.js](../api/matches.js) mientras que las relacionadas con los jugadores se realizan desde [players.js](../api/players.js). 
-La implementación de estos métodos esta escrita en nuestro fichero fuente [league.js](../src/models/league.js)
 
