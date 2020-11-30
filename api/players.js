@@ -7,6 +7,7 @@ league.fromJson(data);
 
 module.exports = (req,res) => {
     
+    
     if (req.method == 'GET'){
         var name = req.query.name;
 
@@ -27,8 +28,6 @@ module.exports = (req,res) => {
             }
         }
     }else if (req.method == 'POST'){
-
-        const { name, email, tlf, level, age } = req.body;
         
         var myJson = JSON.parse(req.body);
 
@@ -43,8 +42,6 @@ module.exports = (req,res) => {
         }
             
     }else if (req.method == "PUT"){
-
-        const {id, name, email, tlf, level, age } = req.body;
         
         var myJson = JSON.parse(req.body);
 

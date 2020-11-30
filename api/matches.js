@@ -42,8 +42,6 @@ module.exports = (req,res) => {
         }
 
     }else if (req.method == 'POST'){
-
-        const { date, played, result, player1, player2 } = req.body;
         
         var myJson = JSON.parse(req.body);
 
@@ -57,9 +55,7 @@ module.exports = (req,res) => {
         }
 
     }else if (req.method == "PUT"){
-         
-        const { date, played, result, player1, player2 } = req.body;
-
+        
         var myJson = JSON.parse(req.body);
 
         var validData = league.checkDataMatchWithId(myJson);
