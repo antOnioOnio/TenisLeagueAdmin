@@ -23,7 +23,7 @@ module.exports = (req,res) => {
                 res.status(200).send(player);
                 
             }else {
-                res.status(404).send("Bad request, that player is not on our league")
+                res.status(404).send("Bad request, that player is not in our league")
             }
         }
     }else if (req.method == 'POST'){
@@ -49,8 +49,6 @@ module.exports = (req,res) => {
         var myJson = JSON.parse(req.body);
 
         var validData = league.checkDataPlayerWithId(myJson);
-
-        console.log("---->" + myJson.id);
 
         if(validData){
 

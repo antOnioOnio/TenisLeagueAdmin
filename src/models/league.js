@@ -92,7 +92,7 @@ class League{
      * 
      * @param {*} data 
      */
-    addMatchFromAPI(data){
+    addMatchFromAPI(data, withId){
         
         var new_match = new Match(
             data.date,
@@ -101,7 +101,11 @@ class League{
             data.player1,
             data.player2,
         );
-        new_match.id = '_' + Math.random().toString(36).substr(2, 9);
+        if (withId){
+            new_match.id = data.id;
+        }else{
+            new_match.id = '_' + Math.random().toString(36).substr(2, 9);
+        }
 
         this.addMatch(new_match);
 
@@ -146,7 +150,6 @@ class League{
      */
     updatePlayer(data){
         var new_Player = new Player(
-            data.id,
             data.name,
             data.email,
             data.tlf,
@@ -154,9 +157,11 @@ class League{
             data.age,
         );
 
+        new_Player.id = data.id;
+
         for( var i = 0; i < this._players.length; i++){ 
     
-            if ( this._players[i].id.localeCompare(id)) { 
+            if ( this._players[i].id.localeCompare(new_Player.id)) { 
     
                 this._players[i] = new_Player;
                 return true
@@ -166,6 +171,34 @@ class League{
         return false;
     }
 
+
+    /**
+     * 
+     * @param {*} data 
+     */
+    updateMatch(data){
+        var new_match = new Match(
+            data.date,
+            data.played,
+            data.result,
+            data.player1,
+            data.player2,
+        );
+        new_match.id = data.id;
+
+        for( var i = 0; i < this._matches.length; i++){ 
+            console.log("id mine-->" + new_match.id);
+            console.log("id loop-->" + this._matches[i].id);
+            if ( this._matches[i].id === new_match.id) { 
+                console.log("they are equal");
+
+                this._matches[i] = new_match;
+                return true
+            }
+        
+        }
+        return false;
+    }
 
     /**
      * 
@@ -189,6 +222,29 @@ class League{
         return true;
     }
 
+
+    /**
+     * 
+     * @param {*} data 
+     */
+    checkDataMatch(data){
+        if (!data.date || !data.played || !data.result || !data.player1 || !data.player2 ){
+            return false;
+        }
+        return true;
+    }
+
+    /**
+     * 
+     * @param {*} data 
+     */
+    checkDataMatchWithId(data){
+        if ( !data.id || !data.date || !data.played || !data.result || !data.player1 || !data.player2 ){
+            return false;
+        }
+        return true;
+    }
+
     /**
      * 
      */
@@ -207,13 +263,11 @@ class League{
     }
 
     /**
-     * le
+     * 
      */
     getPlayerById(id){
-
         for( var i = 0; i < this._players.length; i++){ 
-    
-            if ( this._players[i]._id.localeCompare(id)) { 
+            if ( this._players[i]._id === id) { 
                 return this._players[i];
             }
         
@@ -304,6 +358,22 @@ class League{
         
     }
 
+
+    /**
+     * 
+     */
+    getMatch(id){
+
+        for( var i = 0; i < this._matches.length; i++){ 
+    
+            if ( this._matches[i]._id === id) { 
+                return this._matches[i];
+            }
+        
+        }
+
+        return null;
+    }
     /**
      * Return whether playerName is our league or not
      * @param {*} playerName 
