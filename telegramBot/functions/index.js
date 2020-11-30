@@ -23,7 +23,7 @@ var options = "/All \t Muestra todos los partidos de la actual liga.\n" ;
 
 bot.hears('hi', (ctx) => ctx.reply('Hola ! como puedo ayudarte ? las opciones son :\n' + options));
 
-bot.launch();
+//bot.launch();
 
 bot.help(ctx => ctx.reply(options))
 
