@@ -121,7 +121,7 @@ class League{
      * 
      * @param {*} name 
      */
-    addPlayerFromAPI(data){
+    addPlayerFromAPI(data, withId){
         var new_Player = new Player(
             data.name,
             data.email,
@@ -129,7 +129,11 @@ class League{
             data.level,
             data.age,
         );
-        new_Player.id = '_' + Math.random().toString(36).substr(2, 9);
+        if ( withId){
+            new_Player.id = data.id;
+        }else{
+            new_Player.id = '_' + Math.random().toString(36).substr(2, 9);
+        }
 
         this.addPlayer(new_Player);
 
@@ -140,8 +144,46 @@ class League{
      * 
      * @param {*} data 
      */
+    updatePlayer(data){
+        var new_Player = new Player(
+            data.id,
+            data.name,
+            data.email,
+            data.tlf,
+            data.level,
+            data.age,
+        );
+
+        for( var i = 0; i < this._players.length; i++){ 
+    
+            if ( this._players[i].id.localeCompare(id)) { 
+    
+                this._players[i] = new_Player;
+                return true
+            }
+        
+        }
+        return false;
+    }
+
+
+    /**
+     * 
+     * @param {*} data 
+     */
     checkDataPlayer(data){
         if (!data.name || !data.email || !data.tlf || !data.level || !data.age ){
+            return false;
+        }
+        return true;
+    }
+
+    /**
+     * 
+     * @param {*} data 
+     */
+    checkDataPlayerWithId(data){
+        if (!data.id || !data.name || !data.email || !data.tlf || !data.level || !data.age ){
             return false;
         }
         return true;
@@ -165,6 +207,22 @@ class League{
     }
 
     /**
+     * le
+     */
+    getPlayerById(id){
+
+        for( var i = 0; i < this._players.length; i++){ 
+    
+            if ( this._players[i]._id.localeCompare(id)) { 
+                return this._players[i];
+            }
+        
+        }
+
+        return null;
+    }
+
+    /**
      * Delete player by id
      * 
      * @param {*} id 
@@ -172,7 +230,7 @@ class League{
     deletePlayer(id){
         for( var i = 0; i < _players.length; i++){ 
     
-            if ( _players[i].id === id) { 
+            if ( _players[i].id.localeCompare(id)) { 
                 arr.splice(i, 1);
                 
                 return true;
@@ -191,7 +249,7 @@ class League{
     deleteMatch(id){
         for( var i = 0; i < this._matches.length; i++){ 
     
-            if ( this._matches[i].id === id) { 
+            if ( this._matches[i].id.localeCompare(id)) { 
         
                 this._matches.splice(i, 1);
                 return true; 

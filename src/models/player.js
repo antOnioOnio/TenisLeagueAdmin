@@ -67,6 +67,11 @@ class Player {
         return !isNaN(tlf) && tlf.toString().length == 9 ;
     }
 
+
+
+    toString(){
+        return "id---> " +this._id + "\nName-->" +this._name ;
+    }
 }
 
 module.exports = Player;

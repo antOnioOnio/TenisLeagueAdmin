@@ -23,7 +23,7 @@ module.exports = (req,res) => {
                 res.status(200).send(player);
                 
             }else {
-                res.status(404).send("Bad request")
+                res.status(404).send("Bad request, that player is not on our league")
             }
         }
     }else if (req.method == 'POST'){
@@ -35,12 +35,38 @@ module.exports = (req,res) => {
         var validData = league.checkDataPlayer(myJson);
 
         if ( validData){
-            var player = league.addPlayerFromAPI(myJson);
+            var player = league.addPlayerFromAPI(myJson,false);
     
             res.status(200).send({status: "Posted, new player id: "+ player.id });
         }else {
-            res.status(404).send({status: "Bad request "});
+            res.status(404).send({status: "Bad request, json format not accepted "});
         }
             
+    }else if (req.method == "PUT"){
+
+        const {id, name, email, tlf, level, age } = req.body;
+        
+        var myJson = JSON.parse(req.body);
+
+        var validData = league.checkDataPlayerWithId(myJson);
+
+        console.log("---->" + myJson.id);
+
+        if(validData){
+
+            var player = league.getPlayerById(myJson.id);
+    
+            if ( player == null ){
+                res.status(404).send({status: "Bad request, no player found "});
+
+            }else {
+                league.updatePlayer(myJson);
+                res.status(200).send({status: "Updated player id: "+ player.id });
+            }
+
+        }else {
+            res.status(404).send({status: "Bad request, json format not accepted "});
+        }
+
     }
 }
