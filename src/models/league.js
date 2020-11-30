@@ -138,6 +138,17 @@ class League{
 
     /**
      * 
+     * @param {*} data 
+     */
+    checkDataPlayer(data){
+        if (!data.name || !data.email || !data.tlf || !data.level || !data.age ){
+            return false;
+        }
+        return true;
+    }
+
+    /**
+     * 
      */
     getPlayerByName(name){
 
