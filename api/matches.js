@@ -24,10 +24,10 @@ module.exports = (req,res) => {
                     if ( matches.length > 0){
                         res.status(200).send(matches)
                     }else {
-                        res.status(204).send("Player has not played yet")
+                        res.status(204).send({status: "Player has not played yet"})
                     }
                 }else {
-                    res.status(404).send("Bad request, that player is not in our league")
+                    res.status(404).send({status: "Bad request, that player is not in our league"})
                 }
             }else if ( date != null){
                 matches = league.getMatchesOfToday(date);
@@ -35,7 +35,7 @@ module.exports = (req,res) => {
                 if ( matches != null){
                     res.status(200).send(matches)
                 }else {
-                    res.status(200).send("There are no matches today");
+                    res.status(204).send({status: "There are no matches today"});
 
                 }
             }
@@ -49,7 +49,7 @@ module.exports = (req,res) => {
 
         if ( validData){
             var match = league.addMatchFromAPI(myJson, false);
-            res.send({status: "Posted, new match id: " + match.id });
+            res.send(201).send({status: "Posted, new match id: " + match.id });
         }else {
             res.status(404).send({status: "Bad request, json format not accepted "});
         }
