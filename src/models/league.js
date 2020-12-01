@@ -303,7 +303,7 @@ class League{
     deleteMatch(id){
         for( var i = 0; i < this._matches.length; i++){ 
     
-            if ( this._matches[i].id.localeCompare(id)) { 
+            if ( this._matches[i].id === id) { 
         
                 this._matches.splice(i, 1);
                 return true; 

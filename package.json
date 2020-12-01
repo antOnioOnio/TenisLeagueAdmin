@@ -27,6 +27,9 @@
     "telegraf": "^3.38.0"
   },
   "devDependencies": {
-    "@vercel/node": "^1.8.5"
+    "@vercel/node": "^1.8.5",
+    "chai-http": "^4.3.0",
+    "super-request": "^1.2.0",
+    "supertest": "^6.0.1"
   }
 }
