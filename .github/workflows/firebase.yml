@@ -3,7 +3,7 @@ name: deploy_to_firebase_hosting
 on:
   push:
     paths:
-      - 'telegramBot/**'
+      - 'telegramBot/functions/**'
 
 jobs:
   deploy_to_firebase_hosting:
@@ -17,10 +17,11 @@ jobs:
         run: npm install
         working-directory: ./telegramBot/functions
       
+
       - name: Deploy to Firebase
         uses: w9jds/firebase-action@master
         with:
           args: deploy --only functions
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-          PROJECT_PATH: "./telegramBot"
+          PROJECT_PATH: "./telegramBot/functions"
