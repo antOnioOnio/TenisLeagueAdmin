@@ -24,7 +24,7 @@ module.exports = (req,res) => {
                 res.status(200).send(player);
                 
             }else {
-                res.status(404).send({status: "Bad request, that player is not in our league"})
+                res.status(204).send({status: "Bad request, that player is not in our league"})
             }
         }
     }else if (req.method == 'POST'){
@@ -36,7 +36,7 @@ module.exports = (req,res) => {
         if ( validData){
             var player = league.addPlayerFromAPI(myJson,false);
     
-            res.status(204).send({status: "Posted, new player id: "+ player.id });
+            res.status(201).send({status: "Posted, new player id: "+ player.id });
         }else {
             res.status(404).send({status: "Bad request, json format not accepted "});
         }

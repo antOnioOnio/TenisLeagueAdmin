@@ -17,14 +17,15 @@ describe('matches', function() {
                 .expect(function (response) {
                     // Do something with response
                     expect(response.body).to.be.an('array');
+
                   })
+                
                   .end(done);
 
         });
     });
 
 });
-
 
 
 describe('players', function() {

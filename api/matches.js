@@ -27,7 +27,7 @@ module.exports = (req,res) => {
                         res.status(204).send({status: "Player has not played yet"})
                     }
                 }else {
-                    res.status(404).send({status: "Bad request, that player is not in our league"})
+                    res.status(204).send({status: "Bad request, that player is not in our league"})
                 }
             }else if ( date != null){
                 matches = league.getMatchesOfToday(date);
