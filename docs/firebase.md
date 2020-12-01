@@ -27,6 +27,81 @@ Una vez seteada para recuperarla basta ejecutar
 
 He de decir que aunque el método me funciona bien al mostrar el contenido de forma local, a la hora de hacer pruebas me dio ciertos fallos, por lo que un workaround realizado fue el volcar la información en un archivo env.json para en caso de fallar asegurarme de que los datos se encuentren correctamente. Este archivo como es obvio se añadió al .gitignore. 
 
+# Archivo principal
+
+Como ya hemos dicho nuestro archivo desde donde vamos a controlar las llamadas y respuestas de nuestro bot es [/telegramBot/functions/index.js](../telegramBot/functions/index.js). 
+
+Vamos a comenzar declarando nuestras dependencias necesarias.
+
+~~~
+const functions = require('firebase-functions');
+const { Telegraf } = require('telegraf');
+const fetch = require('node-fetch');
+let config = require('./env.json');
+~~~
+
+* Firebase-functions obviamente lo usamos para obetener las utilidades que ofrece como desplegar, ver logs, guardar variables etc.
+* Telegraf es nuestro framework elegido en el cual desarrollaremos el código para desplegar nuestro bot.
+* node-fetch lo usaremos como paquete para realizar nuestras llamadas a la API.
+* El archivo env.json me he visto forzado a crearlo como ya se ha mencionado en el apartado anterior.
+
+
+~~~
+if (Object.keys(functions.config()).length){
+  config = functions.config();
+}
+
+const bot = new Telegraf(config.service.telegram_key);
+
+var urlPlayers = "https://tenis-league-admin.vercel.app/api/players";
+var urlMatches = "https://tenis-league-admin.vercel.app/api/matches";
+
+var settings = { method: "Get" };
+~~~
+
+El primer paso es registrar nuestro bot con nuestra API key que telegram nos dio, como se ha comentado antes tuve problemas a la hora de hacer uso de la funcion functions.config(), por lo que previamente se guardo en un archivo local. 
+A continuación vamos a declarar nuestros endpoints y una variable que guarde la configuración con la que vamos a realizar nuestras peticiones. 
+
+Para ilustrar el funcionamiento de una petición vamos a centrarnos en /Today.
+
+
+~~~
+
+bot.command('Today', async (ctx) => {
+
+  let res = 'Los partidos que se juegan hoy son:\n';
+
+  await fetch(urlMatches+"?date=today", settings)
+    .then(res => res.json())
+    .then((json) => {
+
+      if ( json.length > 0){
+
+        for( var i = 0; i < json.length ; i++){ 
+          res +=  "" + json[i]._player1 + " vs " + json[i]._player2 + "\n";
+        }
+
+    }
+
+    return null;
+  }) 
+
+  
+  ctx.reply(res)
+})
+~~~
+
+Como vemos, una vez el bot recibe la peticion "/Today" se inicia un método asíncrono en el cual se realiza una petición a nuestro endpoint donde especificamos el valor de nuestro parámetro y la configuración con la que vamos a realizar dicha petición.
+
+Una vez devuelta la información basta con recorrer nuestro json respuesta e ir incluyendo en nuestra variable respuesta los valores que deseamos dentro de nuestro json. 
+
+Notese el return null, el lector puede preguntarse el por qué de dicho retorno, y no es más que cada vez que declaramos un then debemos especificar un valor de retorno o un error. Tras varías horas investigando descubrí este workaround para solucionar un problema que nunca debió serlo.
+
+## ¿ Por qué peticiones externas a la API ? 
+Si bien es cierto que tanto el bot de telegram como la API están dentro del mismo proyecto y en estos casos tendría más sentido acceder directamente a ella se ha querido realizar de esta forma por las siguietes razones:
+* Par poder acceder a la base de datos local hubiera tenido que desplegar tambien en firebase la base de datos local y todos los métodos implementados, duplicando bastante código. Eso o unificar ambos bajo el mismo directorio raiz, lo cual hubiera llevado a más problemas y los pros no sobrepasaban los contras
+* Damos uso al servicio creado y emulamos la creación de un bot de forma paralela al proyecto.
+
 
 ## Bot y funciones 
 

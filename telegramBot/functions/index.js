@@ -13,7 +13,6 @@ const bot = new Telegraf(config.service.telegram_key);
 var urlPlayers = "https://tenis-league-admin.vercel.app/api/players";
 var urlMatches = "https://tenis-league-admin.vercel.app/api/matches";
 
-
 var settings = { method: "Get" };
 
 var options = "/All \t Muestra todos los partidos de la actual liga.\n" ;
