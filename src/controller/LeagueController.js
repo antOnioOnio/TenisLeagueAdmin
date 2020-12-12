@@ -51,7 +51,7 @@ class LeagueController extends Dator {
             }
        }
 
-      throw new Error("There is no league for that year.");
+      return [];
     }
 
     getPlayers(year){
@@ -61,13 +61,11 @@ class LeagueController extends Dator {
                  return this.leagues[i].players;
              }
         }
-        throw new Error("There is no league for that year");
+        return [];
     }
 
     getPlayer(id){
-        console.log("Called with "+ id);
-
-
+    
         for (var i = 0 ; i < this.leagues.length ; i++){
             for ( var j = 0; j < this.leagues[i].players.length; j++){
                 if (this.leagues[i].players[j].id  === id){
@@ -76,7 +74,7 @@ class LeagueController extends Dator {
             }
        }
 
-        throw new Error("That player does not exists.");
+        return null;
     }
 
 
@@ -100,8 +98,8 @@ class LeagueController extends Dator {
   
         }
 
-        throw new Error("Wrong info.");
-    
+        return null;
+
         
     }
 
@@ -136,14 +134,14 @@ class LeagueController extends Dator {
                  
                     this.leagues[i].addMatch(newMatch);
                     this.updateDB();
-
+                    
                     return newMatch.id;
                 }
             }
 
-            throw new Error("League does not exists");
+            return null;
         }else {
-            throw new Error("Wrong information, one of the players does not play any league");
+            return null;
         }
 
     }
@@ -155,7 +153,7 @@ class LeagueController extends Dator {
                  return this.leagues[i].matches;
              }
         }
-        throw new Error("There is no league for that year");
+        return null;
     }
 
     getMatch(id){
@@ -167,8 +165,8 @@ class LeagueController extends Dator {
                 }
             }
        }
-
-        throw new Error("That player does not exists.");
+    
+    return null;
     }
 
 
@@ -210,7 +208,8 @@ class LeagueController extends Dator {
         var isPlayingPlayer2 = new Boolean(false);
 
         for (var i = 0; i < this.leagues.length ; i++){
-            if (this.leagues[0].isPlayerInTheLeague(player1.id) ){
+            if (this.leagues[i].isPlayerInTheLeague(player1.id) ){
+                console.log("yes..is playing 1");
                 isPlayingPlayer1 = true;
                 break;
             }
@@ -218,14 +217,19 @@ class LeagueController extends Dator {
         }
 
         for (var i = 0; i < this.leagues.length ; i++){
-            if (this.leagues[0].isPlayerInTheLeague(player2.id) ){
+            if (this.leagues[i].isPlayerInTheLeague(player2.id) ){
+                console.log("yes..is playing 2");
                 isPlayingPlayer1 = true;
                 break;
             }
             
         }
 
-        return isPlayingPlayer2 && isPlayingPlayer1 ? true: false
+        if ( isPlayingPlayer1== true && isPlayingPlayer2 == true){
+            return true;
+        }else {
+            return false;
+        }
 
     }
     
