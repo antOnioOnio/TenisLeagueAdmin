@@ -395,41 +395,44 @@ class League{
      * @param {*} json 
      */
     fromJson(json){
-        json.forEach((item) => {
-            this._year = item.year;
-            this._level = item.level;
+        console.log("fromJson CALLED");
+        console.log(json["year"])
 
-            item.matches.forEach((match)=> {
+
+        this._year = json["year"];
+        this._level = json["level"]
+
+
+        Object.entries(json["matches"]).forEach(([key, value]) => {
+
                 var new_match = new Match(
-                    match.date,
-                    match.played,
-                    match.result,
-                    match.player1,
-                    match.player2,
+                    value["date"],
+                    value["played"],
+                    value["result"],
+                    value["player1"],
+                    value["player2"],
                 );
-
-                new_match.id = match.id;
+                new_match.id = value["id"];
                 this.addMatch(new_match);
-            });
 
-            item.players.forEach((player)=> {
+        })
+
+        Object.entries(json["players"]).forEach(([key, value]) => {
                 var new_player = new Player(
-                    player.name,
-                    player.email,
-                    player.tlf,
-                    player.level,
-                    player.age,
+                    value["name"],
+                    value["email"],
+                    value["tlf"],
+                    value["level"],
+                    value["age"],
                 );
-
-                new_player.id = player.id;
+                new_player.id = value["id"];
                 this.addPlayer(new_player);
-            });
 
+        })
 
-          });
     }
 
 
 }
 
-module.exports = League;
+module.exports = { League };

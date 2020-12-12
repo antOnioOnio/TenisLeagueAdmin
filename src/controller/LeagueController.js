@@ -2,27 +2,34 @@ const { Dator }  =   require("./Dator.js");
 const { League } =   require("../models/league.js");
 const { Match  } =   require("../models/player.js");
 const { Player } =   require("../models/match.js");
+
 const fs = require('fs');
 var fakeData = require("../Data/data.json");
 
-class FSDator extends Dator {
+class LeagueController extends Dator {
 
     constructor(){
         super();
         
         this.leagues = new Array();
 
-        fakeData.forEach((item) => {
-            var league = new League();
-            league.fromJson(item);
-        })
-       
+        Object.entries(fakeData).forEach(([key, value]) => {
 
+            
+            var league = new League();
+            league.fromJson(value);
+
+            this.leagues.push(league);
+        })
+    
     }
 
+    newLeague(year){
+        var league = new League();
+        league.year = year;
 
-    newLeague(league){
-        
+        this.leagues.push(league);
+        this.updateDB();
     }
 
 
@@ -190,3 +197,6 @@ class FSDator extends Dator {
     }
     
 }
+
+
+module.exports = { LeagueController };
