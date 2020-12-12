@@ -1,7 +1,7 @@
 const { Dator }  =   require("./Dator.js");
 const { League } =   require("../models/league.js");
-const { Match  } =   require("../models/player.js");
-const { Player } =   require("../models/match.js");
+const { Player  } =   require("../models/player.js");
+const { Match } =   require("../models/match.js");
 
 const fs = require('fs');
 var fakeData = require("../Data/data.json");
@@ -18,15 +18,13 @@ class LeagueController extends Dator {
 
             
             var league = new League();
+
             league.fromJson(value);
 
             this.leagues.push(league);
 
         
         })
-
-    
-    
     }
 
     newLeague(year){
@@ -39,7 +37,6 @@ class LeagueController extends Dator {
 
 
     getLeagues(){
-
        return this.leagues;
     }
 
@@ -54,45 +51,59 @@ class LeagueController extends Dator {
             }
        }
 
-     throw new Error("There is no league for that year.");
+      throw new Error("There is no league for that year.");
     }
 
+    getPlayers(year){
+
+        for (var i = 0 ; i < this.leagues.length ; i++){
+             if ( year == this.leagues[i].year){
+                 return this.leagues[i].players;
+             }
+        }
+        throw new Error("There is no league for that year");
+    }
 
     getPlayer(id){
+        console.log("Called with "+ id);
 
-        this.leagues.forEach( (league) => {
-            
-            league.players.forEach((player)=> {
-                if (player.id === id ){
-                    return player;
+
+        for (var i = 0 ; i < this.leagues.length ; i++){
+            for ( var j = 0; j < this.leagues[i].players.length; j++){
+                if (this.leagues[i].players[j].id  === id){
+                    return this.leagues[i].players[j];
                 }
-            })
+            }
+       }
 
-        });
         throw new Error("That player does not exists.");
     }
 
 
     addPlayer(name, email, tlf, level, age, leagueId){
+        
 
         if ( Player.validAge(age) && Player.validLevel(level) && Player.isAtlf(tlf)){
-            var newPlayer = new Player(name, email, tlf, level, age);
+            console.log("is valid");
 
-            this.leagues.forEach( (league) => {
-                if ( league.id == leagueId){
-                    league.addPlayer(newPlayer);
-                    updateDB();
+            for (var i = 0 ; i < this.leagues.length ; i++){
+                
+                if ( this.leagues[i].id === leagueId){
+                 
+                    var newPlayer = new Player(name, email, tlf, level, age);
+                    this.leagues[i].addPlayer(newPlayer);
+                    this.updateDB();
 
                     return newPlayer.id;
                 }
-            })
-        } 
-
+            }
   
+        }
+
         throw new Error("Wrong info.");
+    
         
     }
-
 
     updatePlayer(player){
  
@@ -102,7 +113,7 @@ class LeagueController extends Dator {
                     // TODO test the equal operator
                     myPlayer = player;
 
-                    updateDB();
+                    this.updateDB();
                     return myPlayer.id;
                 }
             })
@@ -134,17 +145,27 @@ class LeagueController extends Dator {
 
     }
 
-    getMatch(id){
-        this.leagues.forEach( (league) => {
-            
-            league.matches.forEach((match)=> {
-                if (match.id === id ){
-                    return match;
-                }
-            })
+    getMatches(year){
 
-        });
-        throw new Error("That match does not exists.");
+        for (var i = 0 ; i < this.leagues.length ; i++){
+             if ( year == this.leagues[i].year){
+                 return this.leagues[i].matches;
+             }
+        }
+        throw new Error("There is no league for that year");
+    }
+
+    getMatch(id){
+
+        for (var i = 0 ; i < this.leagues.length ; i++){
+            for ( var j = 0; j < this.leagues[i].matches.length; j++){
+                if (this.leagues[i].matches[j].id  === id){
+                    return this.leagues[i].matches[j];
+                }
+            }
+       }
+
+        throw new Error("That player does not exists.");
     }
 
 
@@ -156,7 +177,7 @@ class LeagueController extends Dator {
                     // TODO test the equal operator
                     myMatch = match;
 
-                    updateDB();
+                    this.updateDB();
                     return myMatch.id;
                 }
             })
@@ -168,9 +189,10 @@ class LeagueController extends Dator {
 
     updateDB(){
 
-        const jsonString = JSON.stringify(this.leagues);
+        const jsonString = JSON.stringify(this.leagues, null, 2);
         //TODO change this to its name
-        fs.writeFile('../Data/newLeague.json', jsonString, err => {
+
+        fs.writeFileSync('newLeague.json', jsonString, err => {
             if (err) {
                 console.log('Error writing file', err)
             } else {

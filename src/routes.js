@@ -19,13 +19,64 @@ module.exports = {
                     return controlador.getLeagues();
                 }
             },
+
             {
                 method: 'GET',
                 path: '/GetLeagues/{year}',
                 handler: (req, res) => {                    
                     return controlador.getLeague(req.params.year);
                 }
-            }
+            },
+            
+            {
+                method: 'GET',
+                path: '/GetPlayers/{year}',
+                handler: (req, res) => {                    
+                    return controlador.getPlayers(req.params.year);
+                }
+            },
+
+            {
+                method: 'GET',
+                path: '/GetPlayer/{id}',
+                handler: (req, res) => {                    
+                    return controlador.getPlayer(req.params.id);
+                }
+            },
+            {
+
+                method: 'POST',
+                path: '/AddPlayer',
+               
+                handler: (req, res) => {       
+        
+                    const payload = req.payload;
+
+                    console.log(payload);
+                       
+                    return controlador.addPlayer(
+                        payload.name, payload.email,payload.tlf,
+                        payload.level,payload.age,payload.leagueId);
+                }
+            },
+
+            {
+                method: 'GET',
+                path: '/GetMatches/{year}',
+                handler: (req, res) => {                    
+                    return controlador.getMatches(req.params.year);
+                }
+            },
+
+            {
+                method: 'GET',
+                path: '/GetMatch/{id}',
+                handler: (req, res) => {                    
+                    return controlador.getMatch(req.params.id);
+                }
+            },
+
+
         ],
       );
     }

@@ -1,6 +1,6 @@
 
 const Match = require('./match.js');
-const Player = require ('./player.js');
+const {Player} = require ('./player.js');
 
 const enumLevels = ["PRINCIPIANTE" , "MEDIO","AVANZADO","PRO"];
 
@@ -397,6 +397,7 @@ class League{
     fromJson(json){
         this._year = json["year"];
         this._level = json["level"]
+        this._id = json["id"];
 
 
         Object.entries(json["matches"]).forEach(([key, value]) => {
