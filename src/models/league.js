@@ -395,10 +395,6 @@ class League{
      * @param {*} json 
      */
     fromJson(json){
-        console.log("fromJson CALLED");
-        console.log(json["year"])
-
-
         this._year = json["year"];
         this._level = json["level"]
 

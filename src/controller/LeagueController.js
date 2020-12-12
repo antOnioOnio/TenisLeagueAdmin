@@ -5,6 +5,7 @@ const { Player } =   require("../models/match.js");
 
 const fs = require('fs');
 var fakeData = require("../Data/data.json");
+const league = require("../models/league.js");
 
 class LeagueController extends Dator {
 
@@ -20,7 +21,11 @@ class LeagueController extends Dator {
             league.fromJson(value);
 
             this.leagues.push(league);
+
+        
         })
+
+    
     
     }
 
@@ -34,19 +39,22 @@ class LeagueController extends Dator {
 
 
     getLeagues(){
-       return fakeData;
+
+       return this.leagues;
     }
 
 
     getLeague(year){
-       
-        this.leagues.forEach((item) => {
-            if ( item.year == year){
-                return item;
+       console.log("getLeague called with the year " +year );
+    
+       for (var i = 0 ; i < this.leagues.length ; i++){
+           console.log("Año--> " +this.leagues[i].year);
+            if ( year == this.leagues[i].year){
+                return this.leagues[i];
             }
-        });
+       }
 
-        throw new Error("There is no league for that year.");
+     throw new Error("There is no league for that year.");
     }
 
 
