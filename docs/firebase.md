@@ -98,6 +98,7 @@ Una vez devuelta la información basta con recorrer nuestro json respuesta e ir 
 Notese el return null, el lector puede preguntarse el por qué de dicho retorno, y no es más que cada vez que declaramos un then debemos especificar un valor de retorno o un error. Tras varías horas investigando descubrí este workaround para solucionar un problema que nunca debió serlo.
 
 ## ¿ Por qué peticiones externas a la API ? 
+
 Si bien es cierto que tanto el bot de telegram como la API están dentro del mismo proyecto y en estos casos tendría más sentido acceder directamente a ella se ha querido realizar de esta forma por las siguietes razones:
 * Par poder acceder a la base de datos local hubiera tenido que desplegar tambien en firebase la base de datos local y todos los métodos implementados, duplicando bastante código. Eso o unificar ambos bajo el mismo directorio raiz, lo cual hubiera llevado a más problemas y los pros no sobrepasaban los contras
 * Damos uso al servicio creado y emulamos la creación de un bot de forma paralela al proyecto.

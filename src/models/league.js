@@ -13,6 +13,7 @@ class League{
         this._id = '_' + Math.random().toString(36).substr(2, 9);
         this._matches = new Array();
         this._players = new Array();
+
     }
 
     /**
@@ -378,9 +379,9 @@ class League{
      * Return whether playerName is our league or not
      * @param {*} playerName 
      */
-    isPlayerInTheLeague(playerName){
+    isPlayerInTheLeague(playerID){
         for( var i = 0; i < this._players.length; i++){ 
-            if ( this._players[i].name === playerName) { 
+            if ( this._players[i].id === playerID) { 
                 return true;
             }
         

@@ -60,7 +60,10 @@ class Player {
     }
 
     static validLevel(level){
-        return level> 0 && level <4 ? true: false;
+        return level === "PRINCIPIANTE" ||
+         level === "MEDIO"  ||
+         level === "AVANZADO" ||
+         level === "PRO" ? true: false;
     }
 
     static isAtlf(tlf){
