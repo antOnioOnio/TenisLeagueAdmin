@@ -125,18 +125,21 @@ class LeagueController extends Dator {
 
     addMatch(date, played, result, player1, player2, leagueId){
         
-        if ( checkMatchData(date, played, result, player1, player2) ) {
+        if ( this.checkMatchData(date, played, result, player1, player2) ) {
 
             var newMatch = new Match(date, played, result, player1, player2);
 
-            this.leagues.forEach((league) => {
-                if ( leagueId  === league.id){
-                    league.addMatch(newMatch);
-                    
+
+            for (var i = 0 ; i < this.leagues.length ; i++){
+                
+                if ( this.leagues[i].id === leagueId){
+                 
+                    this.leagues[i].addMatch(newMatch);
                     this.updateDB();
-                    return match.id;
+
+                    return newMatch.id;
                 }
-            })
+            }
 
             throw new Error("League does not exists");
         }else {

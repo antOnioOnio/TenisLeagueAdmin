@@ -52,7 +52,6 @@ module.exports = {
         
                     const payload = req.payload;
 
-                    console.log(payload);
                        
                     return controlador.addPlayer(
                         payload.name, payload.email,payload.tlf,
@@ -75,7 +74,22 @@ module.exports = {
                     return controlador.getMatch(req.params.id);
                 }
             },
+            
+            {
 
+                method: 'POST',
+                path: '/AddMatch',
+               
+                handler: (req, res) => {       
+        
+                    const payload = req.payload;
+
+                       
+                    return controlador.addMatch(
+                        payload.date, payload.played,payload.result,
+                        payload.player1,payload.player2,payload.leagueId);
+                }
+            },
 
         ],
       );

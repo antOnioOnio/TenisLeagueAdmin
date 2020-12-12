@@ -1,5 +1,5 @@
 
-const Match = require('./match.js');
+const {Match} = require('./match.js');
 const {Player} = require ('./player.js');
 
 const enumLevels = ["PRINCIPIANTE" , "MEDIO","AVANZADO","PRO"];
