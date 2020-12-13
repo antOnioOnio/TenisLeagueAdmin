@@ -83,7 +83,6 @@ describe('Testing Post methods', () => {
 
         });
 
-        console.log(res);
         expect(res.statusCode).to.equal(201);
         expect(res.result).to.be.a.string();
      
