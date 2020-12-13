@@ -137,7 +137,7 @@ class LeagueController extends Dator {
                 if ( this.leagues[i].id === leagueId){
                     
                     this.leagues[i].addMatch(newMatch);
-                    this.updateDB();
+                    //this.updateDB();
                     
                     return newMatch.id;
                 }
