@@ -17,6 +17,17 @@ Para la instalación de nuestro proyecto y siga las instrucciones que se explica
 ## Desarrollo del proyecto
 El desarrollo del proyecto esta estructurado por semanas, las cuáles podéis consultar [aquí](/docs/pasos.md). 
 
+## Microservicio
+
+* [Justificación técnica](/docs/justificacionHapi.md) del framework elegido, [Hapi.js](https://hapi.dev/) 
+
+* [Diseño de la API](/docs/diseñoApi.md), justificación, rutas, tipos devueltos y más.
+
+* [Buenas prácticas](/docs/buenasPracticasResAPi.md)
+
+* [Tests](/docs/testsApi.md) de integración.
+
+
 ## Serverless
 
 Esta sección se puede dividir en dos apartados principales:

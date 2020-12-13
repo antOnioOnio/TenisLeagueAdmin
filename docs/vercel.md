@@ -192,10 +192,10 @@ Se han creado tests que comprueben que el código devuelto para players y matche
 ## Códigos HTTP
 
 * 200: Petición tuvo éxito.
-* 201: Petición tuvo éixto, recurso creado.
+* 201: Petición tuvo éxito, recurso creado.
 * 204: Petición tuvo éxito pero la respuesta esta vacía.
 
-* 404: Peitción mal formulada
+* 404: Petición mal formulada
 
 
 ## Integración en el proyecto.
