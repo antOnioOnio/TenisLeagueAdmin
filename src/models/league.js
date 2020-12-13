@@ -319,12 +319,13 @@ class League{
      * Return the matches where name has played or is going to play
      * @param {*} name 
      */
-    getMatchesOfPlayer(name){
+    getMatchesOfPlayer(id){
+        console.log("getMatchesOfPlayer Called log with "+ id);
         var matchesOfPlayer = new Array();
 
         this._matches.forEach(element =>{
-            if(element.player1 == name || element.player2 == name){
-        
+            if(element.player1 == id || element.player2 == id){
+                console.log("id to compare-> "+ element.player1);
                 matchesOfPlayer.push(element);
             }
         })
@@ -380,7 +381,7 @@ class League{
      * @param {*} playerName 
      */
     isPlayerInTheLeague(playerID){
-        console.log("Called with " + playerID);
+        console.log("isPlayerInTheLeague Called with " + playerID);
         for( var i = 0; i < this._players.length; i++){ 
             if ( this._players[i].id === playerID) { 
            
