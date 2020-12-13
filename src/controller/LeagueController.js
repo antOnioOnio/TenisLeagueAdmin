@@ -37,15 +37,14 @@ class LeagueController extends Dator {
 
 
     getLeagues(){
+        console.log("getLeagues called "); 
        return this.leagues;
     }
 
 
     getLeague(year){
-       console.log("getLeague called with the year " +year );
-    
+        console.log("getLeague called with " + year); 
        for (var i = 0 ; i < this.leagues.length ; i++){
-           console.log("Año--> " +this.leagues[i].year);
             if ( year == this.leagues[i].year){
                 return this.leagues[i];
             }
@@ -55,7 +54,7 @@ class LeagueController extends Dator {
     }
 
     getPlayers(year){
-
+        console.log("getPlayers called with " + year);
         for (var i = 0 ; i < this.leagues.length ; i++){
              if ( year == this.leagues[i].year){
                  return this.leagues[i].players;
@@ -65,7 +64,7 @@ class LeagueController extends Dator {
     }
 
     getPlayer(id){
-    
+        console.log("getPlayer called with " + id);
         for (var i = 0 ; i < this.leagues.length ; i++){
             for ( var j = 0; j < this.leagues[i].players.length; j++){
                 if (this.leagues[i].players[j].id  === id){
@@ -79,10 +78,11 @@ class LeagueController extends Dator {
 
 
     addPlayer(name, email, tlf, level, age, leagueId){
-        
+        console.log("addPlayer called with : name: " +name+ " email: " + 
+                    email + " tlf: " + tlf + " level:  "+ level+ " age: " 
+            + age+ " league ID" + leagueId  );
 
         if ( Player.validAge(age) && Player.validLevel(level) && Player.isAtlf(tlf)){
-            console.log("is valid");
 
             for (var i = 0 ; i < this.leagues.length ; i++){
                 
@@ -104,6 +104,7 @@ class LeagueController extends Dator {
     }
 
     updatePlayer(player){
+        console.log("updatePlayer called with " + player);
  
         this.leagues.forEach( (league) => {
             league.players.forEach((myPlayer)=> {
@@ -123,7 +124,10 @@ class LeagueController extends Dator {
 
 
     addMatch(date, played, result, player1, player2, leagueId){
-
+        console.log("addMatch called with : date: " +date+ " played: " + 
+                    played + " result: " + result + " player1:  "+ player1+ " player2: " 
+                    + player2+ " league ID" + leagueId  );
+       
         if ( this.checkMatchData(date, played, result, player1, player2) ) {
             
             var newMatch = new Match(date, played, result, player1, player2);
@@ -147,7 +151,7 @@ class LeagueController extends Dator {
     }
 
     getMatches(year){
-
+        console.log("getMatches called for : "+year );
         for (var i = 0 ; i < this.leagues.length ; i++){
              if ( year == this.leagues[i].year){
                  return this.leagues[i].matches;
@@ -157,7 +161,7 @@ class LeagueController extends Dator {
     }
 
     getMatch(id){
-
+        console.log("getMatch called with : "+id );
         for (var i = 0 ; i < this.leagues.length ; i++){
             for ( var j = 0; j < this.leagues[i].matches.length; j++){
                 if (this.leagues[i].matches[j].id  === id){
@@ -171,7 +175,7 @@ class LeagueController extends Dator {
 
 
     updateMatch(match){
-         
+        console.log("updatedMatch called with : "+match );
         this.leagues.forEach( (league) => {
             league.matches.forEach((myMatch)=> {
                 if (myMatch.id  ===  match.id){

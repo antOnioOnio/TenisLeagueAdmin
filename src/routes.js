@@ -33,9 +33,13 @@ module.exports = {
                 method: 'GET',
                 path: '/GetLeagues/{year}',
                 options:{
+
                     validate: {
                         query:Joi.object({
-                            year: Joi.number().required()
+                            year: Joi.number()
+                            .integer()
+                            .min(1900)
+                            .max(2023),
                         }),  
                         options:{
                             allowUnknown: true,
@@ -71,7 +75,10 @@ module.exports = {
                 options:{
                     validate: {
                         query:Joi.object({
-                            year: Joi.number().required()
+                            year: Joi.number()
+                            .integer()
+                            .min(1900)
+                            .max(2023),
                         }),  
                         options:{
                             allowUnknown: true,
@@ -138,8 +145,8 @@ module.exports = {
                     validate: {
                         payload:Joi.object({
                             name: Joi.string().min(2).max(30).required(),
-                            email: Joi.string().required(),
-                            tlf: Joi.number().min(9).max(12).required(),
+                            email: Joi.string().email().required(),
+                            tlf: Joi.number().min(9).required(),
                             level: Joi.string().required(),
                             age: Joi.number().required(),
                             leagueId: Joi.string().min(5).max(50).required()
@@ -183,9 +190,13 @@ module.exports = {
                 options:{
                     validate: {
                         query:Joi.object({
-                            year: Joi.number().required()
+                            year: Joi.number()
+                            .integer()
+                            .min(1900)
+                            .max(2023)
                         }),  
                         options:{
+                            collect: true,
                             allowUnknown: true,
                             abortEarly: false
                         },
