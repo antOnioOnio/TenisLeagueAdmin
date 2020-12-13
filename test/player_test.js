@@ -4,24 +4,16 @@ const assert = require('chai').assert;
 const validAge = require("../src/models/player").validAge;
 const validLevel = require("../src/models/player").validLevel;
 const isAtlf = require("../src/models/player").isAtlf;
-const Player = require("../src/models/player");
+const { Player } = require("../src/models/player");
 
-
-describe('Testing class Player', function () {
-
-  
-    // test('Crear',()=>{
-    //     expect(new Player()).toBeInstanceOf(Player);
-        
-    // });
-
-
-    let normalPlayer = new Player( 
+var normalPlayer = new Player( 
     "Brian", 
     "brian@correo.es", 
     "612453456", 
     "MEDIO", 
     "33");
+
+describe('Testing class Player', function () {
 
     it('get name should returns Brian ', function(){
         expect(normalPlayer.name).to.equal("Brian");
@@ -43,15 +35,15 @@ describe('Testing class Player', function () {
 
 describe('Testing validAge method', function () {
     it('validAge should return a type boolean', function(){
-        let result = validAge(-1);
+        let result = normalPlayer.validAge(-1);
         assert.typeOf(result, "boolean");
     });
     it('value should be false for a value lower than 0', function(){
-        let result = validAge(-1);
+        let result = normalPlayer.validAge(-1);
         assert.equal(result, false);
     });
     it('value should be false for a value higher than 0', function(){
-        let result = validAge(1);
+        let result = normalPlayer.validAge(1);
         assert.equal(result, true);
     });
     
@@ -59,15 +51,15 @@ describe('Testing validAge method', function () {
 
 describe('Testing validLevel method', function () {
     it('validLevel should return a type boolean', function(){
-        let result = validLevel(-1);
+        let result = normalPlayer.validLevel(-1);
         assert.typeOf(result, "boolean");
     });
     it('value should be false for a value lower than 0 ', function(){
-        let result = validAge(-1);
+        let result = normalPlayer.validAge(-1);
         assert.equal(result, false);
     });
     it('value should be false for a value higher than 3', function(){
-        let result = validAge(5);
+        let result = normalPlayer.validAge(5);
         assert.equal(result, true);
     });
     
@@ -76,19 +68,19 @@ describe('Testing validLevel method', function () {
 
 describe('Testing isTlf method', function () {
     it('isAtlf should return a type boolean', function(){
-        let result = validLevel(-1);
+        let result = normalPlayer.validLevel(-1);
         assert.typeOf(result, "boolean");
     });
     it('value should be false for a string parameter ', function(){
-        let result = isAtlf("string parameter");
+        let result = normalPlayer.isAtlf("string parameter");
         assert.equal(result, false);
     });
     it('value should be true for number parameter', function(){
-        let result = isAtlf(111111111);
+        let result = normalPlayer.isAtlf(111111111);
         assert.equal(result, true);
     });
     it('value should return false if the number hasnt got 9 digits ', function(){
-        let result = isAtlf(11);
+        let result = normalPlayer.isAtlf(11);
 
         assert.equal(result, false);
     });

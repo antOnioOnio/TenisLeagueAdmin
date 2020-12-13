@@ -55,18 +55,18 @@ class Player {
     }
         
 
-    static validAge(age){
+    validAge(age){
         return age > 0 ? true : false;
     }
 
-    static validLevel(level){
+    validLevel(level){
         return level === "PRINCIPIANTE" ||
          level === "MEDIO"  ||
          level === "AVANZADO" ||
          level === "PRO" ? true: false;
     }
 
-    static isAtlf(tlf){
+     isAtlf(tlf){
         return !isNaN(tlf) && tlf.toString().length == 9 ;
     }
 

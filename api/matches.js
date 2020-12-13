@@ -1,6 +1,6 @@
 //var data = JSON.parse(fs.readFileSync("./data_matches.json"));
 var data = require("../src/Data/data.json");
-const League = require("../src/models/league");
+const {League} = require("../src/models/league");
 
 var league = new League();
 league.fromJson(data);

@@ -1,46 +1,100 @@
-const { expect } = require('chai');
-var request = require('supertest')
-const League = require("../src/models/league");
-const Match = require("../src/models/match");
-const url= 'https://tenis-league-admin.vercel.app';
+//const { expect } = require('chai');
+const { expect } = require('@hapi/code');
 
-var request = request(url);
+const server  = require('../src/app.js')
+const request = require('http');
+
+// https://niralar.com/testing-hapi-js-with-jest/
 
 
 
-describe('matches', function() {
-    describe('GET', function(){
-        it('Debe devolver JSON como forma, status 200 y ser un array', function(done){
-            request.get('/api/matches')
-                .expect('Content-Type', /json/)
-                .expect(200)
-                .expect(function (response) {
-                    // Do something with response
-                    expect(response.body).to.be.an('array');
+describe('Testing Get methods', () => {
+    
+    
+    after((done) => {
+        server.events.on('stop', ()=> {
+            done();
+        });
+        server.stop();
+    
+    })
 
-                  })
-                
-                  .end(done);
+    it('Get leagues should returns 200 and be an array of objects', async () => {
+        const res = await server.inject({
+            method: 'get',
+            url: '/GetLeagues'
+        });
+
+        expect(res.statusCode).to.equal(200);
+        expect(res.result).to.be.an.array();
+    
+    });
+
+    it('2020 league should returns 200 and be an array of objects', async () => {
+        const res = await server.inject({
+            method: 'get',
+            url: '/GetLeagues/2020'
+        });
+
+        expect(res.statusCode).to.equal(200);
+
+    });
+
+    
+    it('Get players from 2020 should responds with status 200 and be an array of objects', async () => {
+        const res = await server.inject({
+            method: 'get',
+            url: '/GetPlayers/2020'
+        });
+
+        expect(res.statusCode).to.equal(200);
+        expect(res.result).to.be.an.array();
+    });
+
+    it('Get player individually should return 200 and contains an array ', async () => {
+        const res = await server.inject({
+            method: 'get',
+            url: '/GetPlayer/8c710459-559d-494f-9724-1321c5112d3b'
+        });
+
+        expect(res.statusCode).to.equal(200);
+       
+    });
+
+
+});
+
+describe('Testing Post methods', () => {
+
+    it('Add match response should be 201. ', async () => {
+        const res = await server.inject({
+            method: 'POST',
+            url: '/AddMatch',
+            payload: {
+                date:"10/02/2020",
+                played:true,
+                result:"6/2, 6/2",
+                player1:"8c710459-559d-494f-9724-1321c5112d3b",
+                player2:"f3a2b537-c4c6-4b5b-a367-16dbbc29b7f7",
+                leagueId: "24d4e12s-3caPF-11eb-adc1-0242ac120002"
+            },
+
+            
 
         });
+
+        console.log(res);
+        expect(res.statusCode).to.equal(201);
+        expect(res.result).to.be.a.string();
+     
     });
+
+
+
 
 });
 
 
-describe('players', function() {
-    describe('GET', function(){
-        it('Debe devolver JSON como forma, status 200 y ser un array', function(done){
-            request.get('/api/players')
-                .expect('Content-Type', /json/)
-                .expect(200)
-                .expect(function (response) {
-                    // Do something with response
-                    expect(response.body).to.be.an('array');
-                  })
-                  .end(done);
+  
 
-        });
-    });
 
-});

@@ -1,12 +1,16 @@
 const { expect } = require('chai');
 
 const assert = require('chai').assert;
-const League = require("../src/models/league");
-const Match = require("../src/models/match");
+const { League } = require("../src/models/league");
+const { Match } = require('../src/models/match.js');
 
 describe('Testing class League', function () {
 
-    let normalMatch = new Match( "22/10/20", true, "6-2, 6-2", "antonio", "joselito");
+    var normalMatch = new Match( 
+        "22/10/20",
+         true, "6-2, 6-2", 
+         "8c710459-559d-494f-9724-1321c5112d3b", 
+         "f3a2b537-c4c6-4b5b-a367-16dbbc29b7f7");
 
     let league = new League();
     league.year = 2021;
