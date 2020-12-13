@@ -79,3 +79,4 @@ Los issues creados para reflejar las historias de usuario
 
 ## Principal fuente de conocimiento
 Este proyecto forma parte del desarrollo de la asignatura Infraestructura Virtual, perteneciente al cuarto curso de Ingeniería Informática de la UGR. Toda la documentación puede ser consultada en su principal [repositorio](https://github.com/JJ/IV-20-21) 
+

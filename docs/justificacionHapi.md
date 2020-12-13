@@ -119,7 +119,7 @@ A la hora de escoger un framework, una buena consideración debe ser el soporte 
 | Last modified|  20 days ago  | a month ago  | 3 months ago |
 | Created |  	2 years ago   | 10 years ago  | 3 years ago  |
 
-Esta información ha sido obtenida de [npmcompare](https://npmcompare.com/), de sus respectivos githubs oficiales y npms oficiales.
+Esta información ha sido obtenida de [npmcompare](https://npmcompare.com/) y de sus respectivos githubs y npms oficiales.
 
 
 ## Pros y contras de cada uno

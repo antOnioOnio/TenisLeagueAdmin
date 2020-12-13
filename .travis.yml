@@ -1,1 +1,12 @@
-script: docker run -t -v `pwd`:/test antonioonio/tenisleagueadmin
+# script: docker run -t -v `pwd`:/test antonioonio/tenisleagueadmin
+
+languaje: node_js
+
+node_js:
+    - 11 
+    - 12
+    - 13
+#https://docs.npmjs.com/cli/v6/commands/npm-ci
+install: 
+    - npm install 
+script: npm test
