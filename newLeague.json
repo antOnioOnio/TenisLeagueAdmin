@@ -169,14 +169,6 @@
         "_result": "6/2, 6/2",
         "_player1": "Rafael Nadal",
         "_player2": "Antonio Garcia"
-      },
-      {
-        "_id": "_oc23hib9f",
-        "_date": "20/1/2020",
-        "_played": "true",
-        "_result": "6/4, 6/1",
-        "_player1": "fsfsfsf",
-        "_player2": "sfsfsfs"
       }
     ],
     "_players": [
@@ -532,6 +524,22 @@
         "_tlf": "610080820",
         "_level": "PRO",
         "_age": "33"
+      },
+      {
+        "_id": "_9xamjejh4",
+        "_name": "rodrigo",
+        "_email": "algo@algo.com",
+        "_tlf": "666999888",
+        "_level": "PRO",
+        "_age": 33
+      },
+      {
+        "_id": "_2pgmvenox",
+        "_name": "rodrigo",
+        "_email": "algo@algo.com",
+        "_tlf": "666999888",
+        "_level": "PRO",
+        "_age": 33
       }
     ],
     "_year": 2020,

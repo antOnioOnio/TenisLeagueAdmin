@@ -121,17 +121,17 @@ class LeagueController extends Dator {
        
     }
 
-    addMatch(date, played, result, player1, player2, leagueId){
-        
-        if ( this.checkMatchData(date, played, result, player1, player2) ) {
 
+    addMatch(date, played, result, player1, player2, leagueId){
+
+        if ( this.checkMatchData(date, played, result, player1, player2) ) {
+            
             var newMatch = new Match(date, played, result, player1, player2);
 
-
             for (var i = 0 ; i < this.leagues.length ; i++){
-                
+
                 if ( this.leagues[i].id === leagueId){
-                 
+                    
                     this.leagues[i].addMatch(newMatch);
                     this.updateDB();
                     
@@ -203,13 +203,14 @@ class LeagueController extends Dator {
     }
 
     checkMatchData(date, played, result, player1, player2){
-        
+
         var isPlayingPlayer1 = new Boolean(false);
         var isPlayingPlayer2 = new Boolean(false);
 
+
         for (var i = 0; i < this.leagues.length ; i++){
-            if (this.leagues[i].isPlayerInTheLeague(player1.id) ){
-                console.log("yes..is playing 1");
+            
+            if (this.leagues[i].isPlayerInTheLeague(player1) ){
                 isPlayingPlayer1 = true;
                 break;
             }
@@ -217,13 +218,14 @@ class LeagueController extends Dator {
         }
 
         for (var i = 0; i < this.leagues.length ; i++){
-            if (this.leagues[i].isPlayerInTheLeague(player2.id) ){
-                console.log("yes..is playing 2");
-                isPlayingPlayer1 = true;
+            if (this.leagues[i].isPlayerInTheLeague(player2) ){
+       
+                isPlayingPlayer2 = true;
                 break;
             }
             
         }
+
 
         if ( isPlayingPlayer1== true && isPlayingPlayer2 == true){
             return true;

@@ -380,12 +380,15 @@ class League{
      * @param {*} playerName 
      */
     isPlayerInTheLeague(playerID){
+        console.log("Called with " + playerID);
         for( var i = 0; i < this._players.length; i++){ 
             if ( this._players[i].id === playerID) { 
+           
                 return true;
             }
         
         }
+
         return false;
     }
 

@@ -1,13 +1,13 @@
 "use strict";
 
 const { LeagueController } = require("./controller/LeagueController.js");
+const Joi = require('@hapi/joi');
 
 var controlador = new LeagueController();
 
 module.exports = {
     name: 'ApiRoutes',
     register: async (server, options) => {
-
 
       server.route(
         [
@@ -32,6 +32,21 @@ module.exports = {
             {
                 method: 'GET',
                 path: '/GetLeagues/{year}',
+                options:{
+                    validate: {
+                        query:Joi.object({
+                            year: Joi.number().required()
+                        }),  
+                        options:{
+                            allowUnknown: true,
+                            abortEarly: false
+                        },
+                        failAction: async (request, h, err) => {
+                            console.log(err);
+                            throw err;
+                        },
+                    }
+                },
                 handler: (req, res) => {          
                                  
                     var data = controlador.getLeague(req.params.year);
@@ -45,12 +60,29 @@ module.exports = {
                     }
                     
                     return res.response(data).code(code);
-                }
+                }, 
+      
+
             },
             
             {
                 method: 'GET',
                 path: '/GetPlayers/{year}',
+                options:{
+                    validate: {
+                        query:Joi.object({
+                            year: Joi.number().required()
+                        }),  
+                        options:{
+                            allowUnknown: true,
+                            abortEarly: false
+                        },
+                        failAction: async (request, h, err) => {
+                            console.log(err);
+                            throw err;
+                        },
+                    }
+                },
                 handler: (req, res) => {      
                     
                     var data = controlador.getPlayers(req.params.year);
@@ -66,10 +98,25 @@ module.exports = {
                     return res.response(data).code(code);
                 }
             },
-
+            
             {
                 method: 'GET',
                 path: '/GetPlayer/{id}',
+                config:{
+                    validate: {
+                        params:Joi.object({
+                            id: Joi.string().min(5).required()
+                        }),  
+                        options:{
+                            allowUnknown: true,
+                            abortEarly: false
+                        },
+                        failAction: async (request, h, err) => {
+                            console.log(err);
+                            throw err;
+                        },
+                    }
+                },
                 handler: (req, res) => {          
                     var data = controlador.getPlayer(req.params.id);
 
@@ -82,11 +129,32 @@ module.exports = {
                     }
 
                     return res.response(data).code(code);
-                }
+                },
             },
             {
                 method: 'POST',
                 path: '/AddPlayer',
+                config:{
+                    validate: {
+                        payload:Joi.object({
+                            name: Joi.string().min(2).max(30).required(),
+                            email: Joi.string().required(),
+                            tlf: Joi.number().min(9).max(12).required(),
+                            level: Joi.string().required(),
+                            age: Joi.number().required(),
+                            leagueId: Joi.string().min(5).max(50).required()
+                        }),  
+                        options:{
+                            allowUnknown: true,
+                            abortEarly: false
+                        },
+                        failAction: async (request, h, err) => {
+                            console.log(err);
+                            throw err;
+                        },
+                    }
+                },  
+              
                
                 handler: (req, res) => {       
         
@@ -98,7 +166,7 @@ module.exports = {
 
                     var code ;
                     if ( data != null) {
-                        code = 200;
+                        code = 201;
                     }else {
                         code = 404;
                         data = "Wrong information, try with another league id"
@@ -112,6 +180,21 @@ module.exports = {
             {
                 method: 'GET',
                 path: '/GetMatches/{year}',
+                options:{
+                    validate: {
+                        query:Joi.object({
+                            year: Joi.number().required()
+                        }),  
+                        options:{
+                            allowUnknown: true,
+                            abortEarly: false
+                        },
+                        failAction: async (request, h, err) => {
+                            console.log(err);
+                            throw err;
+                        },
+                    }
+                },
                 handler: (req, res) => {        
                     
                     var data = controlador.getMatches(req.params.year);
@@ -131,6 +214,21 @@ module.exports = {
             {
                 method: 'GET',
                 path: '/GetMatch/{id}',
+                config:{
+                    validate: {
+                        params:Joi.object({
+                            id: Joi.string().min(5).required()
+                        }),  
+                        options:{
+                            allowUnknown: true,
+                            abortEarly: false
+                        },
+                        failAction: async (request, h, err) => {
+                            console.log(err);
+                            throw err;
+                        },
+                    }
+                },
                 handler: (req, res) => {   
 
                     var data = controlador.getMatch(req.params.id);
@@ -148,9 +246,28 @@ module.exports = {
             },
             
             {
-
                 method: 'POST',
                 path: '/AddMatch',
+                options:{
+                    validate: {
+                        payload:Joi.object({
+                            date: Joi.string().required(),
+                            played: Joi.boolean().required(),
+                            result: Joi.string().required(),
+                            player1: Joi.string().min(5).max(50).required(),
+                            player2: Joi.string().min(5).max(50).required(),
+                            leagueId: Joi.string().min(5).max(50).required()
+                        }),
+                        options:{
+                            allowUnknown: true,
+                            abortEarly: false
+                        },
+                        failAction: async (request, h, err) => {
+                            console.log(err);
+                            throw err;
+                        }
+                    }
+                },
                
                 handler: (req, res) => {       
         
@@ -162,7 +279,7 @@ module.exports = {
 
                         var code ;
                         if ( data != null) {
-                            code = 200;
+                            code = 201;
                         }else {
                             code = 404;
                             data = "Wrong info, try with another league Id or check the players"
