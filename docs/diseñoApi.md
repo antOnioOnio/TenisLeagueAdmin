@@ -28,14 +28,14 @@ En su constructor observamos como inicializamos un array de ligas a partir de lo
 
 **Models** Son los modelos de datos implementados y sus métodos propios. Tenemos [league](../src/models/league.js), [match](../src/models/match.js) y [player](../src/models/player.js)
 
-**Routes.** Hapi permite separar los endpoints declarados en un fichero nuevo, ayudando bastante a la modularidad y separación de procesos. Las rutas van a ser "levantadas" una vez se inicialice nuestro servidor desde nuestra aplicación, recibirán las peticiones desde la app, las validarán, trasmitirán en caso de ser válidas a nuestra clase controladora y devolverán el estado oportunno. Este archivo puede consultado [aquí](../src/route.js).
+**Routes.** Hapi permite separar los endpoints declarados en un fichero nuevo, ayudando bastante a la modularidad y separación de procesos. Las rutas van a ser "levantadas" una vez se inicialice nuestro servidor desde nuestra aplicación, recibirán las peticiones desde la app, las validarán, trasmitirán en caso de ser válidas a nuestra clase controladora y devolverán el estado oportunno. Este archivo puede consultado [aquí](../src/routes.js).
 
 
 **App.** Es el encargado de configurar e inicializar el servidor. He decidido separar la definición del servidor de las rutas para modularizar lo máximo posible y tener un código más claro y leíble. Este archivo puede ser consultado [aquí](../src/app.js)
 
 ## Rutas
 
-En cada enlace encontrará información información relevante acerca de cada endpoint como son tipo devuelto, parámetros necesitados, respuesta, formato de respuesta y en caso de que sea de tipo POST, el payload necesario.
+En cada enlace encontrará información relevante acerca de cada endpoint como son tipo devuelto, parámetros necesitados, respuesta, formato de respuesta y en caso de que sea de tipo POST, el payload necesario.
 
 * [GetLeagues](./rutas/GetLeagues.md)
  

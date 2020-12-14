@@ -6,10 +6,7 @@ const request = require('http');
 
 // https://niralar.com/testing-hapi-js-with-jest/
 
-
-
 describe('Testing Get methods', () => {
-    
     
     after((done) => {
         server.events.on('stop', ()=> {
@@ -37,12 +34,19 @@ describe('Testing Get methods', () => {
             url: '/GetLeagues/2020'
         });
 
-        console.log(res);
         expect(res.statusCode).to.equal(200);
         expect(res.payload).to.be.json;
     });
 
-    
+    it('2025 league should returns 404 ', async () => {
+        const res = await server.inject({
+            method: 'get',
+            url: '/GetLeagues/2025'
+        });
+
+        expect(res.statusCode).to.equal(404);
+    });
+
     it('Get players from 2020 should responds with status 200 and be an array of objects', async () => {
         const res = await server.inject({
             method: 'get',

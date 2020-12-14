@@ -23,8 +23,6 @@ El desarrollo del proyecto esta estructurado por semanas, las cuáles podéis co
 
 * [Diseño de la API](/docs/diseñoApi.md), justificación, rutas, tipos devueltos y más.
 
-* [Buenas prácticas](/docs/buenasPracticasResAPi.md)
-
 * [Tests](/docs/testsApi.md) de integración.
 
 
