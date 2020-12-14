@@ -25,6 +25,8 @@ El desarrollo del proyecto esta estructurado por semanas, las cuáles podéis co
 
 * [Tests](/docs/testsApi.md) de integración.
 
+* [HUs](/docs/HUApi6.md) avanzadas.
+
 
 ## Serverless
 

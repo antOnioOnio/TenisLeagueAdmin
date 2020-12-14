@@ -88,8 +88,7 @@ describe('Testing Post methods', () => {
                 leagueId: "24d4e12s-3caPF-11eb-adc1-0242ac120002"
             },
 
-            
-
+        
         });
 
         expect(res.statusCode).to.equal(201);
