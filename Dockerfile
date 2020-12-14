@@ -7,7 +7,8 @@ LABEL maintainer="Antonio Garcia" version="1.0.1"
 # a nuestro usuario
 RUN  mkdir /node_modules \
     && chown -R node /node_modules  \
-    && chown -R node /usr/local/bin
+    && chown -R node /usr/local/bin \
+    && apk add --update nodejs npm make \
 
 
 
