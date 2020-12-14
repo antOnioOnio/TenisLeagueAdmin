@@ -27,6 +27,7 @@ describe('Testing Get methods', () => {
 
         expect(res.statusCode).to.equal(200);
         expect(res.result).to.be.an.array();
+        expect(res.payload).to.be.json;
     
     });
 
@@ -36,8 +37,9 @@ describe('Testing Get methods', () => {
             url: '/GetLeagues/2020'
         });
 
+        console.log(res);
         expect(res.statusCode).to.equal(200);
-
+        expect(res.payload).to.be.json;
     });
 
     
@@ -49,6 +51,8 @@ describe('Testing Get methods', () => {
 
         expect(res.statusCode).to.equal(200);
         expect(res.result).to.be.an.array();
+        expect(res.payload).to.be.json;
+
     });
 
     it('Get player individually should return 200 and contains an array ', async () => {
@@ -58,6 +62,7 @@ describe('Testing Get methods', () => {
         });
 
         expect(res.statusCode).to.equal(200);
+        expect(res.payload).to.be.json;
        
     });
 

@@ -82,19 +82,23 @@ class LeagueController extends Dator {
                     email + " tlf: " + tlf + " level:  "+ level+ " age: " 
             + age+ " league ID" + leagueId  );
 
-        if ( Player.validAge(age) && Player.validLevel(level) && Player.isAtlf(tlf)){
+        
 
             for (var i = 0 ; i < this.leagues.length ; i++){
                 
                 if ( this.leagues[i].id === leagueId){
                  
                     var newPlayer = new Player(name, email, tlf, level, age);
-                    this.leagues[i].addPlayer(newPlayer);
-                    this.updateDB();
+                    if ( newPlayer.validAge(age) && newPlayer.validLevel(level) && newPlayer.isAtlf(tlf)){
+                    
+                        this.leagues[i].addPlayer(newPlayer);
+                        this.updateDB();
+                    }
 
                     return newPlayer.id;
                 }
-            }
+            
+
   
         }
 
