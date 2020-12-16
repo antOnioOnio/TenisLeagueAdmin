@@ -1,6 +1,6 @@
 # Justificación de la elección del Framework.
 
-A la hora de elegir un framework para la realización de una API Rest con node nos encontramos con bastantes opciones: [koa2](https://koajs.com/), [adonis](https://adonisjs.com/), [express](https://expressjs.com/es/), [hapi](https://hapi.dev/), [sails](https://sailsjs.com/) y más. Entonces, ¿Cúal usar ? 
+A la hora de elegir un framework para la realización de una API Rest con node nos encontramos con bastantes opciones: [koa2](https://koajs.com/), [adonis](https://adonisjs.com/), [express](https://expressjs.com/es/), [hapi](https://hapi.dev/), [sails](https://sailsjs.com/) y más. Entonces, ¿Cúal usar? 
 
 
 Para tomar la decisión vamos a centrarnos en los 3 más populares, Express, Koa2 y Hapi. Lo primero que he hecho ha sido experimentar un poco con cada uno. Para ello he creado un hello world en cada uno y medido los tiempos de respuesta . El código puede ser encontrado en  [este](https://github.com/antOnioOnio/testFramework) repositorio. 
@@ -104,9 +104,9 @@ app.listen(3000);
 
 Observamos que hapi ofrece la respuesta más rápida de los 3. 
 
-## Popularidad y comunidad sosteniendolo.
+## Popularidad y comunidad sosteniéndolo.
 
-A la hora de escoger un framework, una buena consideración debe ser el soporte que esta tenga, esto hay que tenerlo en cuenta porque si o si vamos a enfrentarnos con problemas que vamos a tener que resolver, cuanto mayor sea el soporte que el frameworks tenga, es probable que encuentres la respuesta a tu problema más rapido. Para guiarme he realizado la siguiente tabla.
+A la hora de escoger un framework, una buena consideración debe ser el soporte que esta tenga, esto hay que tenerlo en cuenta porque si o si vamos a enfrentarnos con problemas que vamos a tener que resolver, cuanto mayor sea el soporte que el frameworks tenga, es probable que encuentres la respuesta a tu problema más rápido. Para guiarme he realizado la siguiente tabla.
 
 | | Express | Hapi | koa2 |
 |--------|--------|--------|---------|
@@ -173,4 +173,4 @@ Ventajas:
 
  * La segunda razón han sido principalmente que me llama mucho la atención la posible modularización que se puede obtener por medio de los plugins. 
 
- * La tercera razón y puede que sea la que no me ha hecho ver esta elecciṕon de la manera más objetiva posible es por distanciamiento de la elección más "mainstream". Si bien es cierto que no es una razón válida para elegir un framework, distanciarme de la elección más obvia y probar otra tenoclogía emergente ayuda así a distanciarme de mis compañeros.
+ * La tercera razón y puede que sea la que no me ha hecho ver esta eleccion de la manera más objetiva posible es por distanciamiento de la elección más "mainstream". Si bien es cierto que no es una razón válida para elegir un framework, distanciarme de la elección más obvia y probar otra tenoclogía emergente ayuda así a distanciarme de mis compañeros.
