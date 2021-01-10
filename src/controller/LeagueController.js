@@ -7,6 +7,14 @@ const fs = require('fs');
 var fakeData = require("../Data/data.json");
 const league = require("../models/league.js");
 
+
+const mongoose = require("mongoose");
+
+mongoose.connect("mongodb://localhost/tennisLeague")
+    .then(db => console.log("db connected"))
+    .catch(err => console.log(err));
+
+
 class LeagueController extends Dator {
 
     constructor(){
