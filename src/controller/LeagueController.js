@@ -9,8 +9,8 @@ const league = require("../models/league.js");
 
 
 const mongoose = require("mongoose");
-
-mongoose.connect("mongodb://localhost/tennisLeague")
+const url = process.env.MONGO_URL || "mongodb://localhost/tennisLeague";
+mongoose.connect(url)
     .then(db => console.log("db connected"))
     .catch(err => console.log(err));
 
