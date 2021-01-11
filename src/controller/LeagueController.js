@@ -2,37 +2,46 @@ const { Dator }  =   require("./Dator.js");
 const { League } =   require("../models/league.js");
 const { Player  } =   require("../models/player.js");
 const { Match } =   require("../models/match.js");
-
+let config = require('../../env.json');
 const fs = require('fs');
-var fakeData = require("../Data/data.json");
+//var dataleagues = require("../Data/data.json");
+
 const league = require("../models/league.js");
 
 
 const mongoose = require("mongoose");
-const url = process.env.MONGO_URL || "mongodb://localhost/tennisLeague";
-mongoose.connect(url)
+const url = process.env.MONGO_URL || config.service.url;
+
+mongoose.connect(url, {useNewUrlParser: true, useUnifiedTopology: true})
     .then(db => console.log("db connected"))
     .catch(err => console.log(err));
 
+var conn = mongoose.connection;
+
+var leagues
 
 class LeagueController extends Dator {
 
     constructor(){
         super();
+        console.log("is declared");
+        this.init();
         
-        this.leagues = new Array();
+    }
 
-        Object.entries(fakeData).forEach(([key, value]) => {
+    async init(){
 
+        conn.once('open', function () {
+
+            conn.db.collection("leagues", function(err, collection){
             
-            var league = new League();
-
-            league.fromJson(value);
-
-            this.leagues.push(league);
-
-        
-        })
+                collection.find({}).toArray(function(err, data){
+                
+                    leagues = data;
+                
+                })
+            });
+        });    
     }
 
     newLeague(year){
@@ -46,15 +55,17 @@ class LeagueController extends Dator {
 
     getLeagues(){
         console.log("getLeagues called "); 
-       return this.leagues;
+
+    //    return this.leagues;
+        return leagues;
     }
 
 
     getLeague(year){
         console.log("getLeague called with " + year); 
-       for (var i = 0 ; i < this.leagues.length ; i++){
-            if ( year == this.leagues[i].year){
-                return this.leagues[i];
+       for (var i = 0 ; i < leagues.length ; i++){
+            if ( year == leagues[i].year){
+                return leagues[i];
             }
        }
 
@@ -63,9 +74,9 @@ class LeagueController extends Dator {
 
     getPlayers(year){
         console.log("getPlayers called with " + year);
-        for (var i = 0 ; i < this.leagues.length ; i++){
-             if ( year == this.leagues[i].year){
-                 return this.leagues[i].players;
+        for (var i = 0 ; i < leagues.length ; i++){
+             if ( year == leagues[i].year){
+                 return leagues[i].players;
              }
         }
         return [];
@@ -73,10 +84,10 @@ class LeagueController extends Dator {
 
     getPlayer(id){
         console.log("getPlayer called with " + id);
-        for (var i = 0 ; i < this.leagues.length ; i++){
-            for ( var j = 0; j < this.leagues[i].players.length; j++){
-                if (this.leagues[i].players[j].id  === id){
-                    return this.leagues[i].players[j];
+        for (var i = 0 ; i < leagues.length ; i++){
+            for ( var j = 0; j < leagues[i].players.length; j++){
+                if (leagues[i].players[j].id  === id){
+                    return leagues[i].players[j];
                 }
             }
        }
@@ -92,14 +103,14 @@ class LeagueController extends Dator {
 
         
 
-            for (var i = 0 ; i < this.leagues.length ; i++){
+            for (var i = 0 ; i < leagues.length ; i++){
                 
-                if ( this.leagues[i].id === leagueId){
+                if ( leagues[i].id === leagueId){
                  
                     var newPlayer = new Player(name, email, tlf, level, age);
                     if ( newPlayer.validAge(age) && newPlayer.validLevel(level) && newPlayer.isAtlf(tlf)){
                     
-                        this.leagues[i].addPlayer(newPlayer);
+                        leagues[i].addPlayer(newPlayer);
                         this.updateDB();
                     }
 
@@ -118,13 +129,13 @@ class LeagueController extends Dator {
     updatePlayer(player){
         console.log("updatePlayer called with " + player);
  
-        this.leagues.forEach( (league) => {
+        leagues.forEach( (league) => {
             league.players.forEach((myPlayer)=> {
                 if (myPlayer.id  ===  player.id){
                     // TODO test the equal operator
                     myPlayer = player;
 
-                    this.updateDB();
+                    updateDB();
                     return myPlayer.id;
                 }
             })
@@ -144,11 +155,11 @@ class LeagueController extends Dator {
             
             var newMatch = new Match(date, played, result, player1, player2);
 
-            for (var i = 0 ; i < this.leagues.length ; i++){
+            for (var i = 0 ; i < leagues.length ; i++){
 
-                if ( this.leagues[i].id === leagueId){
+                if ( leagues[i].id === leagueId){
                     
-                    this.leagues[i].addMatch(newMatch);
+                    leagues[i].addMatch(newMatch);
                     //this.updateDB();
                     
                     return newMatch.id;
@@ -164,9 +175,9 @@ class LeagueController extends Dator {
 
     getMatches(year){
         console.log("getMatches called for : "+year );
-        for (var i = 0 ; i < this.leagues.length ; i++){
-             if ( year == this.leagues[i].year){
-                 return this.leagues[i].matches;
+        for (var i = 0 ; i < leagues.length ; i++){
+             if ( year == leagues[i].year){
+                 return leagues[i].matches;
              }
         }
         return null;
@@ -174,10 +185,10 @@ class LeagueController extends Dator {
 
     getMatch(id){
         console.log("getMatch called with : "+id );
-        for (var i = 0 ; i < this.leagues.length ; i++){
-            for ( var j = 0; j < this.leagues[i].matches.length; j++){
-                if (this.leagues[i].matches[j].id  === id){
-                    return this.leagues[i].matches[j];
+        for (var i = 0 ; i < leagues.length ; i++){
+            for ( var j = 0; j < leagues[i].matches.length; j++){
+                if (leagues[i].matches[j].id  === id){
+                    return leagues[i].matches[j];
                 }
             }
        }
@@ -188,7 +199,7 @@ class LeagueController extends Dator {
 
     updateMatch(match){
         console.log("updatedMatch called with : "+match );
-        this.leagues.forEach( (league) => {
+        leagues.forEach( (league) => {
             league.matches.forEach((myMatch)=> {
                 if (myMatch.id  ===  match.id){
                     // TODO test the equal operator
@@ -206,7 +217,7 @@ class LeagueController extends Dator {
 
     updateDB(){
 
-        const jsonString = JSON.stringify(this.leagues, null, 2);
+        const jsonString = JSON.stringify(leagues, null, 2);
         //TODO change this to its name
 
         fs.writeFileSync('newLeague.json', jsonString, err => {
@@ -224,17 +235,17 @@ class LeagueController extends Dator {
         var isPlayingPlayer2 = new Boolean(false);
 
 
-        for (var i = 0; i < this.leagues.length ; i++){
+        for (var i = 0; i < leagues.length ; i++){
             
-            if (this.leagues[i].isPlayerInTheLeague(player1) ){
+            if (leagues[i].isPlayerInTheLeague(player1) ){
                 isPlayingPlayer1 = true;
                 break;
             }
             
         }
 
-        for (var i = 0; i < this.leagues.length ; i++){
-            if (this.leagues[i].isPlayerInTheLeague(player2) ){
+        for (var i = 0; i < leagues.length ; i++){
+            if (leagues[i].isPlayerInTheLeague(player2) ){
        
                 isPlayingPlayer2 = true;
                 break;
