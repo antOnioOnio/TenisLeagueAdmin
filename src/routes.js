@@ -13,7 +13,7 @@ module.exports = {
         [
             {
                 method: 'GET',
-                path: '/GetLeagues',
+                path: '/League',
                 handler: async (req, res) => {
                     
                     var data = controlador.getLeagues();
@@ -28,10 +28,19 @@ module.exports = {
                     return res.response(data).code(code);
                 }
             },
+            {
+                method: 'GET',
+                path: '/status',
+                handler: async (req, res) => {
+                    
+            
+                    return { status: "OK" };
+                }
+            },
 
             {
                 method: 'GET',
-                path: '/GetLeagues/{year}',
+                path: '/League/{year}',
                 options:{
 
                     validate: {
@@ -71,7 +80,7 @@ module.exports = {
             
             {
                 method: 'GET',
-                path: '/GetPlayers/{year}',
+                path: '/Players/{year}',
                 options:{
                     validate: {
                         query:Joi.object({
@@ -108,7 +117,7 @@ module.exports = {
             
             {
                 method: 'GET',
-                path: '/GetPlayer/{id}',
+                path: '/Player/{id}',
                 config:{
                     validate: {
                         params:Joi.object({
@@ -139,8 +148,8 @@ module.exports = {
                 },
             },
             {
-                method: 'POST',
-                path: '/AddPlayer',
+                method: 'PUT',
+                path: '/Player',
                 config:{
                     validate: {
                         payload:Joi.object({
@@ -186,7 +195,7 @@ module.exports = {
 
             {
                 method: 'GET',
-                path: '/GetMatches/{year}',
+                path: '/Matches/{year}',
                 options:{
                     validate: {
                         query:Joi.object({
@@ -224,7 +233,7 @@ module.exports = {
 
             {
                 method: 'GET',
-                path: '/GetMatch/{id}',
+                path: '/Match/{id}',
                 config:{
                     validate: {
                         params:Joi.object({
@@ -257,8 +266,8 @@ module.exports = {
             },
             
             {
-                method: 'POST',
-                path: '/AddMatch',
+                method: 'PUT',
+                path: '/Match',
                 options:{
                     validate: {
                         payload:Joi.object({
@@ -303,6 +312,5 @@ module.exports = {
         ],
       );
     }
-
 
   }

@@ -56,8 +56,6 @@ class LeagueController extends Dator {
 
     getLeagues(){
         console.log("getLeagues called "); 
-
-    //    return this.leagues;
         return leagues;
     }
 
@@ -65,7 +63,7 @@ class LeagueController extends Dator {
     getLeague(year){
         console.log("getLeague called with " + year); 
        for (var i = 0 ; i < leagues.length ; i++){
-            if ( year == leagues[i].year){
+            if ( year == leagues[i]._year){
                 return leagues[i];
             }
        }
@@ -76,7 +74,7 @@ class LeagueController extends Dator {
     getPlayers(year){
         console.log("getPlayers called with " + year);
         for (var i = 0 ; i < leagues.length ; i++){
-             if ( year == leagues[i].year){
+             if ( year == leagues[i]._year){
                  return leagues[i].players;
              }
         }
@@ -87,7 +85,7 @@ class LeagueController extends Dator {
         console.log("getPlayer called with " + id);
         for (var i = 0 ; i < leagues.length ; i++){
             for ( var j = 0; j < leagues[i].players.length; j++){
-                if (leagues[i].players[j].id  === id){
+                if (leagues[i].players[j]._id  === id){
                     return leagues[i].players[j];
                 }
             }
@@ -188,10 +186,11 @@ class LeagueController extends Dator {
 
     }
 
+
     getMatches(year){
         console.log("getMatches called for : "+year );
         for (var i = 0 ; i < leagues.length ; i++){
-             if ( year == leagues[i].year){
+             if ( year == leagues[i]._year){
                  return leagues[i].matches;
              }
         }
@@ -202,7 +201,7 @@ class LeagueController extends Dator {
         console.log("getMatch called with : "+id );
         for (var i = 0 ; i < leagues.length ; i++){
             for ( var j = 0; j < leagues[i].matches.length; j++){
-                if (leagues[i].matches[j].id  === id){
+                if (leagues[i].matches[j]._id  === id){
                     return leagues[i].matches[j];
                 }
             }
