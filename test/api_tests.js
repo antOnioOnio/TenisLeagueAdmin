@@ -73,33 +73,33 @@ describe('Testing Get methods', () => {
 
 });
 
-describe('Testing Post methods', () => {
+// describe('Testing Post methods', () => {
 
-    it('Add match response should be 201. ', async () => {
-        const res = await server.inject({
-            method: 'POST',
-            url: '/AddMatch',
-            payload: {
-                date:"10/02/2020",
-                played:true,
-                result:"6/2, 6/2",
-                player1:"8c710459-559d-494f-9724-1321c5112d3b",
-                player2:"f3a2b537-c4c6-4b5b-a367-16dbbc29b7f7",
-                leagueId: "24d4e12s-3caPF-11eb-adc1-0242ac120002"
-            },
+//     it('Add match response should be 201. ', async () => {
+//         const res = await server.inject({
+//             method: 'POST',
+//             url: '/AddMatch',
+//             payload: {
+//                 date:"10/02/2020",
+//                 played:true,
+//                 result:"6/2, 6/2",
+//                 player1:"8c710459-559d-494f-9724-1321c5112d3b",
+//                 player2:"f3a2b537-c4c6-4b5b-a367-16dbbc29b7f7",
+//                 leagueId: "24d4e12s-3caPF-11eb-adc1-0242ac120002"
+//             },
 
         
-        });
+//         });
 
-        expect(res.statusCode).to.equal(201);
-        expect(res.result).to.be.a.string();
+//         expect(res.statusCode).to.equal(201);
+//         expect(res.result).to.be.a.string();
      
-    });
+//     });
 
 
 
 
-});
+// });
 
 
   

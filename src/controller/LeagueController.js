@@ -24,7 +24,7 @@ class LeagueController extends Dator {
 
     constructor(){
         super();
-        console.log("is declared");
+    
         this.init();
         
     }
@@ -38,10 +38,19 @@ class LeagueController extends Dator {
                 collection.find({}).toArray(function(err, data){
                 
                     leagues = data;
-                
+                    for (var i = 0; i < leagues.length; i++) {
+                        var players = leagues[i]["players"];
+            
+                        for ( var j= 0 ; j<players.length; j++){
+
+                            console.log("PLAYERS id==> " + players[j]["id"]);
+                        }
+                        
+                    }
                 })
             });
         });    
+
     }
 
     newLeague(year){
@@ -97,32 +106,40 @@ class LeagueController extends Dator {
 
 
     addPlayer(name, email, tlf, level, age, leagueId){
+
         console.log("addPlayer called with : name: " +name+ " email: " + 
                     email + " tlf: " + tlf + " level:  "+ level+ " age: " 
-            + age+ " league ID" + leagueId  );
-
-        
-
+            + age+ " league ID :" + leagueId  );
+    
             for (var i = 0 ; i < leagues.length ; i++){
                 
                 if ( leagues[i].id === leagueId){
                  
                     var newPlayer = new Player(name, email, tlf, level, age);
+                    
                     if ( newPlayer.validAge(age) && newPlayer.validLevel(level) && newPlayer.isAtlf(tlf)){
                     
-                        leagues[i].addPlayer(newPlayer);
-                        this.updateDB();
+                        console.log("ID league-->" + leagues[i]["_id"]);
+
+                        conn.db.collection("leagues", function(err, collection){
+            
+                            collection.updateOne(
+                                {_id: leagues[i]["_id"]},
+                                { $addToSet: { players: newPlayer } }
+                            ).then(result => {
+                                console.log("result");
+                              }).catch(err => console.error(err))
+                        });
+
+                        return newPlayer.id;
                     }
 
-                    return newPlayer.id;
-                }
-            
 
-  
+                }
+        
         }
 
         return null;
-
         
     }
 
@@ -151,7 +168,7 @@ class LeagueController extends Dator {
                     played + " result: " + result + " player1:  "+ player1+ " player2: " 
                     + player2+ " league ID" + leagueId  );
        
-        if ( this.checkMatchData(date, played, result, player1, player2) ) {
+        if ( this.checkMatchData(date, played, result, player1, player2), leagueId ) {
             
             var newMatch = new Match(date, played, result, player1, player2);
 
@@ -159,8 +176,14 @@ class LeagueController extends Dator {
 
                 if ( leagues[i].id === leagueId){
                     
-                    leagues[i].addMatch(newMatch);
-                    //this.updateDB();
+           
+                    conn.db.collection("leagues", function(err, collection){
+            
+                        collection.updateOne(
+                            {_id: leagues[i]["_id"]},
+                            { $addToSet: { matches: newMatch } }    
+                        )
+                    });
                     
                     return newMatch.id;
                 }
@@ -216,23 +239,18 @@ class LeagueController extends Dator {
 
 
     updateDB(){
+        console.log("updateDB called");
 
-        const jsonString = JSON.stringify(leagues, null, 2);
-        //TODO change this to its name
-
-        fs.writeFileSync('newLeague.json', jsonString, err => {
-            if (err) {
-                console.log('Error writing file', err)
-            } else {
-                console.log('Successfully wrote file')
-            }
-        })
+        conn.db.collection.update( "leagues", leagues, upsert, multi )
     }
 
     checkMatchData(date, played, result, player1, player2){
 
         var isPlayingPlayer1 = new Boolean(false);
         var isPlayingPlayer2 = new Boolean(false);
+
+
+  
 
 
         for (var i = 0; i < leagues.length ; i++){
