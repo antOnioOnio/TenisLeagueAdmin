@@ -2,47 +2,65 @@ const { Dator }  =   require("./Dator.js");
 const { League } =   require("../models/league.js");
 const { Player  } =   require("../models/player.js");
 const { Match } =   require("../models/match.js");
-let config = require('../../env.json');
+// let config = require('../../env.json');
 const fs = require('fs');
 const league = require("../models/league.js");
 
+var {Connection}= require("./Connection.js")
 
-const mongoose = require("mongoose");
-const url = process.env.MONGO_URL /*|| config.service.url*/;
 
-mongoose.connect(url, {useNewUrlParser: true, useUnifiedTopology: true})
-    .then(db => console.log("db connected"))
-    .catch(err => console.log(err));
+// const mongoose = require("mongoose");
+// const url = process.env.MONGO_URL /*|| config.service.url*/;
 
-var conn = mongoose.connection;
+// mongoose.connect(url, {useNewUrlParser: true, useUnifiedTopology: true})
+//     .then(db => console.log("db connected"))
+//     .catch(err => console.log(err));
 
-var leagues
+// var conn = mongoose.connection;
+
+var leagues;
 
 class LeagueController extends Dator {
 
     constructor(){
         super();
-    
-        this.init();
+        this.aux = new Connection();
+        this.aux.connectToMongo().then(()=> {
+
+             this.init()
+            
+        
+        });
         
     }
 
-    async init(){
+     async init(){
 
+        leagues = await  this.aux.getLeagues();
+            console.log(leagues);
 
-        conn.once('open', function () {
+        // console.log("before");
+        // leagues = "----";
+        // leagues =  await this.aux.getLeagues();
+        // console.log(await this.aux.getLeagues());
+    
+        
+        // console.log(leagues);
 
-            conn.db.collection("leagues", function(err, collection){
+        //     Connection.once('open', function () {
+
+        //     Connection.db.collection("leagues", function(err, collection){
             
-                collection.find({}).toArray(function(err, data){
+        //         collection.find({}).toArray(function(err, data){
                 
-                    leagues = data;
+        //             leagues = data;
   
-                })
-            });
-        });    
+               
+        //         })
+        //     });
+        //    });    
 
-    }
+     }
 
     newLeague(year){
         var league = new League();
