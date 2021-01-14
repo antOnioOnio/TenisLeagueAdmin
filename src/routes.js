@@ -12,6 +12,14 @@ module.exports = {
     
       server.route(
         [
+        {
+            method: 'GET',
+            path: '/',
+            handler: async (req, res) => {
+                
+                return {status : "ok"}
+            }
+        },
             {
                 method: 'GET',
                 path: '/League',
