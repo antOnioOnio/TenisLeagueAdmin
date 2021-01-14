@@ -194,7 +194,7 @@ module.exports = {
                         code = 201;
                     }else {
                         code = 404;
-                        data = "Wrong information, try with another league id"
+                        data = "Wrong information, try with another league id or check the payload"
                     }
 
                     var uriLocation =  uriApp + "/Player/" + data;

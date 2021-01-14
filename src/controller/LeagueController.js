@@ -2,7 +2,7 @@
 const { League } =   require("../models/league.js");
 const { Player  } =   require("../models/player.js");
 const { Match } =   require("../models/match.js");
-// let config = require('../../env.json');
+//let config = require('../../env.json');
 const fs = require('fs');
 const league = require("../models/league.js");
 
