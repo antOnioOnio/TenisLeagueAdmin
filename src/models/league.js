@@ -365,10 +365,12 @@ class League{
      * 
      */
     getMatch(id){
+        console.log("getmatch called with "+ id);
 
         for( var i = 0; i < this._matches.length; i++){ 
-    
+            console.log("==>" +  this._matches[i]._id);
             if ( this._matches[i]._id === id) { 
+                console.log("found");
                 return this._matches[i];
             }
         

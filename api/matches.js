@@ -36,18 +36,7 @@ module.exports = (req,res) => {
                 }else {
                     res.status(404).send({status: "No content"})
                 }
-                // // check first if the player is playing the league
-                // if (leagues[0].isPlayerInTheLeague(id)){
-                //     matches = leagues[0].getMatchesOfPlayer(id);
-                    
-                //     if ( matches.length > 0){
-                //         res.status(200).send(matches)
-                //     }else {
-                //         res.status(204).send({status: "Player has not played yet"})
-                //     }
-                // }else {
-                //     res.status(204).send({status: "Bad request, that player is not in our league"})
-                // }
+
             }else if ( date != null){
                 matches = league.getMatchesOfToday(date);
                 

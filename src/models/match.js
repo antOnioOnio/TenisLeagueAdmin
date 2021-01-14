@@ -39,8 +39,7 @@ class Match{
 
     set player2(player){this._player2 = player;}
 
-    
-
+  
 }
 
 module.exports = { Match };
