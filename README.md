@@ -17,6 +17,14 @@ Para la instalación de nuestro proyecto y siga las instrucciones que se explica
 ## Desarrollo del proyecto
 El desarrollo del proyecto esta estructurado por semanas, las cuáles podéis consultar [aquí](/docs/pasos.md). 
 
+
+## Despliegue en PaaS
+
+* [Justificación técnica](/docs/justificacionPaas.md) de heroku
+
+* [Base de datos usada](/docs/baseDatosHeroku.md) 
+
+
 ## Microservicio
 
 * [Justificación técnica](/docs/justificacionHapi.md) del framework elegido, [Hapi.js](https://hapi.dev/) 
