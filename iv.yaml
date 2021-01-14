@@ -8,9 +8,12 @@ taskfile: package.json
 
 URL: https://tenis-league-admin.vercel.app/api/matches?id=2f5353d0-2cbd-11eb-adc1-0242ac120002
 
+
 make: make
 
+
 PaaS: https://tenisleagueadmin.herokuapp.com/
+
 
 recurso:
     nombre: Player
@@ -24,4 +27,3 @@ recurso:
         - leagueId: 24d4e12s-3caPF-11eb-adc1-0242ac120002
     IDs:
 
-        
