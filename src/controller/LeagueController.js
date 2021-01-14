@@ -1,4 +1,4 @@
-const { Dator }  =   require("./Dator.js");
+ const { Dator }  =   require("./Dator.js");
 const { League } =   require("../models/league.js");
 const { Player  } =   require("../models/player.js");
 const { Match } =   require("../models/match.js");
@@ -6,61 +6,43 @@ const { Match } =   require("../models/match.js");
 const fs = require('fs');
 const league = require("../models/league.js");
 
-var {Connection}= require("./Connection.js")
 
+const mongoose = require("mongoose");
+const url = process.env.MONGO_URL /*|| config.service.url*/;
 
-// const mongoose = require("mongoose");
-// const url = process.env.MONGO_URL /*|| config.service.url*/;
+mongoose.connect(url, {useNewUrlParser: true, useUnifiedTopology: true})
+    .then(db => console.log("db connected"))
+    .catch(err => console.log(err));
 
-// mongoose.connect(url, {useNewUrlParser: true, useUnifiedTopology: true})
-//     .then(db => console.log("db connected"))
-//     .catch(err => console.log(err));
+var conn = mongoose.connection;
 
-// var conn = mongoose.connection;
-
-var leagues;
+var leagues
 
 class LeagueController extends Dator {
 
     constructor(){
         super();
-        this.aux = new Connection();
-        this.aux.connectToMongo().then(()=> {
-
-             this.init()
-            
-        
-        });
+    
+        this.init();
         
     }
 
-     async init(){
+    async init(){
 
-        leagues = await  this.aux.getLeagues();
-            console.log(leagues);
 
-        // console.log("before");
-        // leagues = "----";
-        // leagues =  await this.aux.getLeagues();
-        // console.log(await this.aux.getLeagues());
-    
-        
-        // console.log(leagues);
+        conn.once('open', function () {
 
-        //     Connection.once('open', function () {
-
-        //     Connection.db.collection("leagues", function(err, collection){
+            conn.db.collection("leagues", function(err, collection){
             
-        //         collection.find({}).toArray(function(err, data){
+                collection.find({}).toArray(function(err, data){
                 
-        //             leagues = data;
+                    leagues = data;
   
-               
-        //         })
-        //     });
-        //    });    
+                })
+            });
+        });    
 
-     }
+    }
 
     newLeague(year){
         var league = new League();
@@ -134,10 +116,11 @@ class LeagueController extends Dator {
                                 {_id: leagues[i]["_id"]},
                                 { $addToSet: { players: newPlayer } }
                             ).then(result => {
-                                console.log("result");
+                        
                               }).catch(err => console.error(err))
                         });
 
+                        this.updateDB();
                         return newPlayer.id;
                     }
 
@@ -191,7 +174,8 @@ class LeagueController extends Dator {
                             { $addToSet: { matches: newMatch } }    
                         )
                     });
-                    
+                    this.updateDB();
+                        
                     return newMatch.id;
                 }
             }
@@ -227,6 +211,17 @@ class LeagueController extends Dator {
     return null;
     }
 
+    updateDB(){
+        conn.db.collection("leagues", function(err, collection){
+            
+            collection.find({}).toArray(function(err, data){
+            
+                leagues = data;
+
+            })
+        });
+        
+    }
 
     updateMatch(match){
         console.log("updatedMatch called with : "+match );
@@ -246,11 +241,6 @@ class LeagueController extends Dator {
     }
 
 
-    updateDB(){
-        console.log("updateDB called");
-
-        conn.db.collection.update( "leagues", leagues, upsert, multi )
-    }
 
     checkMatchData(date, played, result, player1, player2){
 

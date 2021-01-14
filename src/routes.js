@@ -4,11 +4,12 @@ const { LeagueController } = require("./controller/LeagueController.js");
 const Joi = require('@hapi/joi');
 
 var controlador = new LeagueController();
+const uriApp = "https://tenisleagueadmin.herokuapp.com";
 
 module.exports = {
     name: 'ApiRoutes',
     register: async (server, options) => {
-
+    
       server.route(
         [
             {
@@ -24,7 +25,7 @@ module.exports = {
                     }else {
                         code = 200;
                     }
-                    
+                   
                     return res.response(data).code(code);
                 }
             },
@@ -148,7 +149,7 @@ module.exports = {
                 },
             },
             {
-                method: 'PUT',
+                method: 'POST',
                 path: '/Player',
                 config:{
                     validate: {
@@ -188,8 +189,9 @@ module.exports = {
                         data = "Wrong information, try with another league id"
                     }
 
-                    
-                    return res.response(data).code(code);
+                    var uriLocation =  uriApp + "/Player/" + data;
+                  
+                    return res.response(data).code(code).location(uriLocation);
                 }
             },
 
@@ -266,7 +268,7 @@ module.exports = {
             },
             
             {
-                method: 'PUT',
+                method: 'POST',
                 path: '/Match',
                 options:{
                     validate: {
@@ -304,8 +306,9 @@ module.exports = {
                             code = 404;
                             data = "Wrong info, try with another league Id or check the players"
                         }
-    
-                        return res.response(data).code(code);
+                        var uriLocation =  uriApp + "/Match/" + data;
+
+                        return res.response(data).code(code).location(uriLocation);
                 }
             },
 
