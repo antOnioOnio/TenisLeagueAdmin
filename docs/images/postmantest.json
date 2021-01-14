@@ -1,0 +1,240 @@
+{
+	"id": "3690fd86-a785-4bb4-b7a6-f96207904302",
+	"name": "IV",
+	"timestamp": "2021-01-14T19:28:54.603Z",
+	"collection_id": "c5cd691a-4952-44c7-b0a5-e6ec8278ef0c",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 49,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "3c6a1fc2-7c43-4c56-a686-9a460e949ba2",
+			"name": "https://tenisleagueadmin.herokuapp.com/League/2020",
+			"time": 62,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 49,
+					"fail": 0
+				}
+			},
+			"times": [
+				277,
+				64,
+				57,
+				59,
+				62,
+				70,
+				60,
+				58,
+				72,
+				61,
+				60,
+				59,
+				66,
+				59,
+				63,
+				59,
+				58,
+				62,
+				60,
+				60,
+				59,
+				63,
+				63,
+				59,
+				61,
+				61,
+				65,
+				61,
+				57,
+				60,
+				64,
+				63,
+				64,
+				58,
+				60,
+				65,
+				58,
+				73,
+				62,
+				57,
+				61,
+				59,
+				66,
+				270,
+				59,
+				62,
+				64,
+				71,
+				62
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				}
+			]
+		}
+	],
+	"count": 50,
+	"totalTime": 3453,
+	"collection": {
+		"requests": [
+			{
+				"id": "3c6a1fc2-7c43-4c56-a686-9a460e949ba2",
+				"method": "GET"
+			}
+		]
+	}
+}

@@ -20,9 +20,11 @@ El desarrollo del proyecto esta estructurado por semanas, las cuáles podéis co
 
 ## Despliegue en PaaS
 
-* [Justificación técnica](/docs/justificacionPaas.md) de heroku
+* [Justificación técnica](/docs/justificacionPaas.md) de las herramientas usadas para desplegar e integración continua.
 
-* [Base de datos usada](/docs/baseDatosHeroku.md) 
+* [Funcionamiento y logs](/docs/funcionaHeroku.md) 
+
+* [Implementación de persistencia y pruebas de carga](/docs/baseDatosHeroku.md) 
 
 
 ## Microservicio
