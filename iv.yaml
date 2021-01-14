@@ -10,7 +10,7 @@ URL: https://tenis-league-admin.vercel.app/api/matches?id=2f5353d0-2cbd-11eb-adc
 
 make: make
 
-PaaS: https://tenisleagueadmin.herokuapp.com/
+PaaS: https://tenisleagueadmin.herokuapp.com
 
 recurso:
     nombre: Player

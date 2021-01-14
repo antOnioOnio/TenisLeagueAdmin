@@ -36,7 +36,7 @@ Para gestionar ambos repositorios se ha añadido un enlace a heroku de forma que
 
 ![](./images/gitHeroku.png)
 
-De esta manera se puede desplegar directamente a heroku. Pero para no estar manteniendo dos repositorios he hecho uso de un addon que gestione la integración continua mediante un pipeline. Este addon se llama [codeship](https://app.codeship.com/home), tiene plan gratuito y su instalación y puesta en marcha es muy simple; Simplemente instalamos el addon desde el dashboard de heroku y una vez instalado especificamos el repositorio y rama que queremos enlazar y desplegar a heroku una vez hayan pasado los tests.
+De esta manera se puede desplegar directamente a heroku. Pero para no estar manteniendo dos repositorios he hecho uso de un addon que gestione la integración continua mediante un pipeline. Este addon se llama [codeship](https://app.codeship.com/home), tiene plan gratuito y su instalación y puesta en marcha es muy simple; Simplemente instalamos el addon desde el dashboard de heroku y una vez instalado, desde codeship tendremos que enlazar con nuestra cuenta de github y especificar el repositorio y rama que queremos enlazar. Una vez hecho creamos nuestra pipeline, la cual desplegará en heroku una vez los test hayan pasado.
 
 ![](./images/codeship.png)
 
