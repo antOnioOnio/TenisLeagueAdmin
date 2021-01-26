@@ -116,7 +116,7 @@ class LeagueController extends Dator {
                               }).catch(err => console.error(err))
                         });
 
-                        this.updateDB();
+                        //this.updateDB();
                         return newPlayer.id;
                     }
 
@@ -187,6 +187,8 @@ class LeagueController extends Dator {
                             { $addToSet: { matches: newMatch } }    
                         )
                     });
+
+
                     this.updateDB();
                         
                     return newMatch.id;

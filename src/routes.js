@@ -201,9 +201,13 @@ module.exports = {
                   
                     //return res.response(data).code(code).location(uriLocation);
                     return new Promise((resolve, reject) => {
+                       
+                        setTimeout(() => {
+                            controlador.updateDB();
+                          }, 5000);
                         setTimeout(() => {
                           resolve(res.response(data).code(code).location(uriLocation));
-                        }, 10000);
+                        }, 5000);
                       });
                 }
             },
