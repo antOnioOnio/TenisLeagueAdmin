@@ -84,7 +84,7 @@ Los issues creados para reflejar las historias de usuario
 - [Archivo yv.yaml](https://github.com/antOnioOnio/TenisLeagueAdmin/blob/master/iv.yaml)
 - [Herramientas utlizadas](/docs/herramientas.md) para el desarrollo del proyecto.
 - [Configuración inicial](/docs/usogit.md) de git siguiendo las buenas prácticas.
-- [Github Autor](https://github.com/antOnioOnio)
+- [Github](https://github.com/antOnioOnio)
 
 
 ## Principal fuente de conocimiento
