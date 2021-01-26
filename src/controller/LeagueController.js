@@ -8,7 +8,6 @@ const league = require("../models/league.js");
 
 const mongoose = require("mongoose");
 const url = process.env.MONGO_URL;
-
 mongoose.connect(url, {useNewUrlParser: true, useUnifiedTopology: true})
     .then(db => console.log("db connected"))
     .catch(err => console.log(err));
@@ -18,7 +17,8 @@ var conn = mongoose.connection;
 var leagues
 
 class LeagueController extends Dator {
-
+    
+    
     constructor(){
         super();
     
@@ -129,6 +129,23 @@ class LeagueController extends Dator {
         
     }
 
+//    async updatePromise(i, newPlayer){
+//         new Promise(function(resolve, reject){
+//             conn.db.collection("leagues", function(err, collection){
+
+//                 collection.updateOne(
+//                     {_id: leagues[i]["_id"]},
+//                     { $addToSet: { players: newPlayer } }
+//                 ).then(function(result){
+//                     return resolve(result);
+//                 })
+                
+//             });
+            
+//         })
+//     }
+
+
     updatePlayer(player){
         console.log("updatePlayer called with " + player);
  
@@ -208,6 +225,7 @@ class LeagueController extends Dator {
     }
 
     updateDB(){
+
         conn.db.collection("leagues", function(err, collection){
             
             collection.find({}).toArray(function(err, data){

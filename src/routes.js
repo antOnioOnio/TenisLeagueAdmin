@@ -181,8 +181,8 @@ module.exports = {
                 },  
               
                
-                handler: (req, res) => {       
-        
+                handler: (req, res) => {      
+                    
                     const payload = req.payload;
 
                     var data = controlador.addPlayer(
@@ -199,7 +199,12 @@ module.exports = {
 
                     var uriLocation =  uriApp + "/Player/" + data;
                   
-                    return res.response(data).code(code).location(uriLocation);
+                    //return res.response(data).code(code).location(uriLocation);
+                    return new Promise((resolve, reject) => {
+                        setTimeout(() => {
+                          resolve(res.response(data).code(code).location(uriLocation));
+                        }, 10000);
+                      });
                 }
             },
 
